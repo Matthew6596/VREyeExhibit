@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class XrCollider : MonoBehaviour
 {
+    [Tooltip("The scale difference from the Capsule Collider to the Character Controller")]
+    public float extraScale = 0.05f;
     CapsuleCollider col;
     CharacterController cc;
     // Start is called before the first frame update
@@ -17,8 +16,8 @@ public class XrCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        col.height = cc.height+0.01f;
-        col.radius = cc.radius + 0.01f;
+        col.height = cc.height+extraScale;
+        col.radius = cc.radius +extraScale;
         col.center = cc.center;
     }
 }
