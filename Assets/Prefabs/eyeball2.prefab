@@ -123,6 +123,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8313b7f851584554aa895abc637c721f, type: 2}
+    - target: {fileID: -2097343527270733909, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db868a73810a21e419e7680c98e325ed, type: 2}
     - target: {fileID: -1744895785623478003, guid: 22107cd28117c55449beb6b44dc44045,
         type: 3}
       propertyPath: m_Name
@@ -196,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 3183160552112354645, guid: 22107cd28117c55449beb6b44dc44045,
         type: 3}
       propertyPath: m_Name
-      value: Sclera_5
+      value: VitreousBody
       objectReference: {fileID: 0}
     - target: {fileID: 3673754315799242863, guid: 22107cd28117c55449beb6b44dc44045,
         type: 3}
