@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8727225230023164854
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.098441
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.098441
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.098441
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 54.427
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.56274
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.484
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7341728132860484358, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Muscles_11
+      objectReference: {fileID: 0}
+    - target: {fileID: -7163006139674552245, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Optic_Nerve1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7104494243108954541, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf91a6b12301b2645b9fc13a04c94198, type: 2}
+    - target: {fileID: -6712016022060262360, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5750f18e988befc4f9a61a61a7da484a, type: 2}
+    - target: {fileID: -5452280256201936223, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Lens_2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3383818262035125692, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Cornea_2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3251674641480745595, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Choroid
+      objectReference: {fileID: 0}
+    - target: {fileID: -2729860086267682408, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Iris
+      objectReference: {fileID: 0}
+    - target: {fileID: -2729860086267682408, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2102589268744223587, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8313b7f851584554aa895abc637c721f, type: 2}
+    - target: {fileID: -1744895785623478003, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Optic_Nerve1_Cap_111
+      objectReference: {fileID: 0}
+    - target: {fileID: -1714237261215862318, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Optic_Nerve_Cap_219
+      objectReference: {fileID: 0}
+    - target: {fileID: -1077450563247181398, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8313b7f851584554aa895abc637c721f, type: 2}
+    - target: {fileID: 434352138317361058, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c826a1fc0a85076458fb91ca6c38825f, type: 2}
+    - target: {fileID: 919132149155446097, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: eyeball2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461668864544350953, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5750f18e988befc4f9a61a61a7da484a, type: 2}
+    - target: {fileID: 1715321278666935425, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac486b295b8d54758a11e0eba1cb0d9a, type: 2}
+    - target: {fileID: 2022855625447711786, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16b44fff1c0183948abee23e473a18ce, type: 2}
+    - target: {fileID: 2290553664957371172, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Optic_Nerve
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556985561651529863, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Optic_Nerve_Cap_14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567991000597165135, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44b2a3a1458da6a4a94c228d967474ad, type: 2}
+    - target: {fileID: 2568327017527334713, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8313b7f851584554aa895abc637c721f, type: 2}
+    - target: {fileID: 2628816912394604254, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Optic_Nerve1_Cap_29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749261446494705060, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Pupil
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183160552112354645, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Sclera_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673754315799242863, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97bd6fe646a9bf42aec3d4b1fb75182, type: 2}
+    - target: {fileID: 4219440132941478464, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Ciliary_Body3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776646358093970585, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9383d15e269024e048f55679d4add4d9, type: 2}
+    - target: {fileID: 5138541589184312440, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5750f18e988befc4f9a61a61a7da484a, type: 2}
+    - target: {fileID: 6851527632547767343, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Ciliary_Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 6946353884775260783, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c589e185d0c76a48ac19e74ae0665c2, type: 2}
+    - target: {fileID: 8465400204309373162, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8313b7f851584554aa895abc637c721f, type: 2}
+    - target: {fileID: 9021952859980794269, guid: 22107cd28117c55449beb6b44dc44045,
+        type: 3}
+      propertyPath: m_Name
+      value: Retina
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22107cd28117c55449beb6b44dc44045, type: 3}
