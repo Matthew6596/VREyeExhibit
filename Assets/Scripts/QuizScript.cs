@@ -32,7 +32,7 @@ public class QuizScript : MonoBehaviour
     private TMP_Text canvasText;
     private Button[] answerButtons;
     private Transform bgTransform;
-    private HorizontalLayoutGroup hlg;
+    private Transform layoutGroup;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class QuizScript : MonoBehaviour
 
         bgTransform = canvasObj.transform.GetChild(0);
         canvasText = bgTransform.GetChild(0).gameObject.GetComponent<TMP_Text>();
-        hlg = bgTransform.GetChild(1).gameObject.GetComponent<HorizontalLayoutGroup>();
+        layoutGroup = bgTransform.GetChild(1);
 
         CreateButtons();
         SetText(question);
@@ -54,7 +54,7 @@ public class QuizScript : MonoBehaviour
         answerButtons = new Button[answers.Length];
         for(int i=0; i<answers.Length; i++)
         {
-            GameObject btn = Instantiate(buttonPrefab,hlg.transform);
+            GameObject btn = Instantiate(buttonPrefab, layoutGroup);
             answerButtons[i] = btn.GetComponent<Button>();
             btn.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = answers[i];
 
@@ -73,9 +73,9 @@ public class QuizScript : MonoBehaviour
     void SetText(string txt){canvasText.text = txt;}
     void ClearButtons()
     {
-        int c = hlg.transform.childCount;
+        int c = layoutGroup.childCount;
         for (int i = 0; i < c; i++)
-            Destroy(hlg.transform.GetChild(i).gameObject);
+            Destroy(layoutGroup.GetChild(i).gameObject);
     }
     void CorrectPressed()
     {
