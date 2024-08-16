@@ -35,7 +35,7 @@ public class ZeroGravity : MonoBehaviour
 
             //Add some random extra force (so things don't just stay still in zero grav, boring!)
             if(zeroGravityActive)
-                r.AddForce(new Vector3(Random.Range(-.05f, .05f), Random.Range(-.05f, .05f), Random.Range(-.05f, .05f)),ForceMode.Impulse);
+                r.AddForce(new Vector3(Random.Range(-.1f, .1f), Random.Range(-.1f, .1f), Random.Range(-.1f, .1f)), ForceMode.Impulse);
         }
     }
 }
