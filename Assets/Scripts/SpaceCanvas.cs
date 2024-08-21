@@ -85,7 +85,10 @@ public class SpaceCanvas : MonoBehaviour
     public void SummonBtn()
     {
         submenu.gameObject.SetActive(true);
-        bufferedAction = () => { Instantiate(summonPrefabs[summonDropdown.value], summonSpawn); };
+        bufferedAction = () => 
+        { 
+            ZeroGravity.TryAddObject(Instantiate(summonPrefabs[summonDropdown.value], summonSpawn));
+        };
     }
     public void SetShowText(string txt)
     {

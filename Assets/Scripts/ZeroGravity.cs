@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class ZeroGravity : MonoBehaviour
 {
-    [SerializeField]
-    bool zeroGravityActive = false;
-    Rigidbody[] rigidbodies;
+    public static bool zeroGravityActive = false;
+    static Rigidbody[] rigidbodies;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,5 +36,16 @@ public class ZeroGravity : MonoBehaviour
             if(zeroGravityActive)
                 r.AddForce(new Vector3(Random.Range(-.1f, .1f), Random.Range(-.1f, .1f), Random.Range(-.1f, .1f)), ForceMode.Impulse);
         }
+    }
+    public static void AddRigidbody(Rigidbody rb)
+    {
+        List<Rigidbody> rbList = new(); rbList.AddRange(rigidbodies);
+        rbList.Add(rb); rigidbodies = rbList.ToArray();
+        rb.useGravity = !zeroGravityActive;
+    }
+    public static void TryAddObject(GameObject obj)
+    {
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        if (rb != null) AddRigidbody(rb);
     }
 }
