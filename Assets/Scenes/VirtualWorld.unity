@@ -49421,6 +49421,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497453785}
   m_CullTransparentMesh: 1
+--- !u!114 &1500672665 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4081954384186539208, guid: 109d9e91736525345b4a48ec084be2a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 993422513}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f4a33c494976942b59aaa6c74ea725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1505234019
 GameObject:
   m_ObjectHideFlags: 0
@@ -77949,6 +77961,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1215390292}
         m_TargetAssemblyTypeName: PlayQuickSound, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1500672665}
+        m_TargetAssemblyTypeName: TargetScript, Assembly-CSharp
+        m_MethodName: ResetScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
