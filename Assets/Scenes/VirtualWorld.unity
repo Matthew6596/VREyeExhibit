@@ -38906,7 +38906,7 @@ GameObject:
   - component: {fileID: 779666397}
   - component: {fileID: 779666396}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: itemDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38989,6 +38989,8 @@ MonoBehaviour:
     - m_Text: Green  Ball
       m_Image: {fileID: 0}
     - m_Text: Blue Ball
+      m_Image: {fileID: 0}
+    - m_Text: Space Cat
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -48286,6 +48288,7 @@ MonoBehaviour:
   - {fileID: 7909945505939213510, guid: a87d0622976d93e4981ad92a172b9ad2, type: 3}
   - {fileID: 1569229403419352101, guid: 5a7a79696639a6c48a46a24014e4d3e3, type: 3}
   - {fileID: 4097349243946462665, guid: c1a8eeddfe18677489ecb575180239cd, type: 3}
+  - {fileID: 2717079242297560665, guid: 3637de294d373a946ac38e03d6c5e1e0, type: 3}
   summonSpawn: {fileID: 431826857}
   summonDropdown: {fileID: 779666396}
 --- !u!114 &1519976847
