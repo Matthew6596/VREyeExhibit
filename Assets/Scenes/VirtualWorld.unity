@@ -41848,7 +41848,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 4251770011101173171, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: m_Mesh
@@ -41923,7 +41923,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 7091441996595164897, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: targetValue
@@ -41948,7 +41948,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 7301080759984184511, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: m_Mesh
@@ -41983,7 +41983,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 8121505627194160403, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: targetValue
@@ -42008,7 +42008,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 8366004735100115301, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: m_Mesh
@@ -50374,7 +50374,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 4251770011101173171, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: m_Mesh
@@ -50449,7 +50449,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 7091441996595164897, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: targetValue
@@ -50474,7 +50474,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 7301080759984184511, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: m_Mesh
@@ -50509,7 +50509,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 8121505627194160403, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: targetValue
@@ -50534,7 +50534,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 8366004735100115301, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: m_Mesh
@@ -50821,7 +50821,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 4251770011101173171, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: m_Mesh
@@ -50896,7 +50896,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 7091441996595164897, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: targetValue
@@ -50921,7 +50921,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 7301080759984184511, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: m_Mesh
@@ -50956,7 +50956,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 8121505627194160403, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: targetValue
@@ -50981,7 +50981,7 @@ PrefabInstance:
         type: 3}
       propertyPath: canvasText.Array.data[1]
       value: 
-      objectReference: {fileID: 39323039}
+      objectReference: {fileID: 1111940153}
     - target: {fileID: 8366004735100115301, guid: 109d9e91736525345b4a48ec084be2a7,
         type: 3}
       propertyPath: m_Mesh
