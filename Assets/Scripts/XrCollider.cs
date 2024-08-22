@@ -6,6 +6,7 @@ public class XrCollider : MonoBehaviour
     public float extraScale = 0.05f;
     CapsuleCollider col;
     CharacterController cc;
+    public bool isTrigger = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,6 @@ public class XrCollider : MonoBehaviour
         col.height = cc.height+extraScale;
         col.radius = cc.radius +extraScale;
         col.center = cc.center;
+        col.isTrigger = isTrigger;
     }
 }
