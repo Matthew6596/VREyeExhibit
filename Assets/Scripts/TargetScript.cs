@@ -50,7 +50,7 @@ public class TargetScript : MonoBehaviour
 
         }
     }
-    public void ResetScore() { score = 0; }
+    public void ResetScore() { score = 0; canvasText[1].text = "Score: " + score; }
     private void OutputToScreen()
     {
         score += targetValue;
