@@ -8,6 +8,7 @@ using TMPro;
 public class SpaceCanvas : MonoBehaviour
 {
     //---Public Properties---
+    public bool hasSubMenu=false;
     public GameObject[] summonPrefabs;
     public Transform summonSpawn;
     public TMP_Dropdown summonDropdown;
@@ -32,13 +33,16 @@ public class SpaceCanvas : MonoBehaviour
     void Start()
     {
         bg=transform.GetChild(0);
-        submenu=bg.GetChild(1);
-        showTextBoxArea=submenu.GetChild(0);
-        showText = showTextBoxArea.GetChild(0).GetComponent<TMP_Text>();
+        if (hasSubMenu)
+        {
+            submenu = bg.GetChild(1);
+            showTextBoxArea = submenu.GetChild(0);
+            showText = showTextBoxArea.GetChild(0).GetComponent<TMP_Text>();
+            for (int i = 0; i < submenu.childCount; i++) submenu.GetChild(i).gameObject.SetActive(false);
+            submenu.gameObject.SetActive(false);
+        }
         baseBGScale = bg.localScale;
         bg.transform.localScale = Vector3.zero;
-        for (int i = 0; i < submenu.childCount; i++) submenu.GetChild(i).gameObject.SetActive(false);
-        submenu.gameObject.SetActive(false);
     }
     //---
 

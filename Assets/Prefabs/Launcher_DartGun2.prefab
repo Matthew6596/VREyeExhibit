@@ -349,7 +349,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4735421096158088262, guid: 956456ecce752e44483dd5a1c66afe71,
     type: 3}
   startPoint: {fileID: 8595650668288598732}
-  launchSpeed: 75
+  launchSpeed: 500
 --- !u!1 &3733188199470847576
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +445,7 @@ GameObject:
   m_Layer: 0
   m_Name: EndOfBarrel
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
