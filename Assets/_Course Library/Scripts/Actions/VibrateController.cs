@@ -9,11 +9,13 @@ public class VibrateController : MonoBehaviour
     public float strongVibrate = 0.75f;
     public float weakVibrate = 0.25f;
 
-    private XRController controller = null;
+    //private XRController controller = null;
+
+    private ActionBasedController controller = null;
 
     private void Awake()
     {
-        controller = GetComponent<XRController>();
+        controller = GetComponent<ActionBasedController>();
     }
 
     public void Vibrate(float amplitude, float duration)
