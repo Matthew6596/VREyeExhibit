@@ -79,7 +79,12 @@ public class SpaceCanvas : MonoBehaviour
     public void ResetWorld()
     {
         CloseSubMenu(true);
-        bufferedAction = () => { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); };
+        bufferedAction = () => {
+            ZeroGravity.zeroGravityActive = false;
+            //ZeroGravity.rigidbodies = new Rigidbody[];
+            TargetScript.score = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+        };
     }
     public void ConfirmAction(bool confirmed)
     {

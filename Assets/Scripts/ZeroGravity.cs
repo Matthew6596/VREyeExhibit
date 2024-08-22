@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZeroGravity : MonoBehaviour
 {
     public static bool zeroGravityActive = false;
-    static Rigidbody[] rigidbodies;
+    public static Rigidbody[] rigidbodies;
     // Start is called before the first frame update
     void Start()
     {
