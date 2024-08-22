@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BouncyBallShenanigans : MonoBehaviour
 {
+    PlayQuickSound pqs;
     [SerializeField]
     bool stayStillAtStart = true;
     Rigidbody rb;
@@ -12,13 +13,17 @@ public class BouncyBallShenanigans : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        pqs = GetComponent<PlayQuickSound>();
         if (stayStillAtStart) StartCoroutine(startTimer());
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (randomBounce)
+        {
             rb.AddForce(new Vector3(Random.Range(-.1f, .1f), Random.Range(-.1f, .1f), Random.Range(-.1f, .1f)), ForceMode.Impulse);
+            pqs.Play();
+        }
     }
 
     IEnumerator startTimer()
