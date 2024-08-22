@@ -20,6 +20,7 @@ public class TargetScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Dart"))
         {
+            collision.rigidbody.freezeRotation = true;
             collision.rigidbody.velocity = Vector3.zero;
             string color = this.gameObject.name;
             switch (color)

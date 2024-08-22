@@ -349,7 +349,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4735421096158088262, guid: 956456ecce752e44483dd5a1c66afe71,
     type: 3}
   startPoint: {fileID: 8595650668288598732}
-  launchSpeed: 50
+  launchSpeed: 75
 --- !u!1 &3733188199470847576
 GameObject:
   m_ObjectHideFlags: 0
