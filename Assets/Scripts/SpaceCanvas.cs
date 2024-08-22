@@ -9,9 +9,11 @@ public class SpaceCanvas : MonoBehaviour
 {
     //---Public Properties---
     public bool hasSubMenu=false;
+    [Space(10)]
     public GameObject[] summonPrefabs;
     public Transform summonSpawn;
     public TMP_Dropdown summonDropdown;
+
 
     //
 
@@ -20,7 +22,7 @@ public class SpaceCanvas : MonoBehaviour
     Transform submenu;
     Vector3 baseBGScale;
     Vector3 targetBGScale;
-    bool on = false;
+    public bool on = false;
     List<Coroutine> delayCoroutines=new();
     float smallScale = 0.05f;
     Action bufferedAction;
@@ -63,12 +65,14 @@ public class SpaceCanvas : MonoBehaviour
     }
     public void TurnOn()
     {
+        on = true;
         bg.localScale = new Vector3(targetBGScale.x, bg.localScale.y, 1);
         targetBGScale = new Vector3(baseBGScale.x,baseBGScale.y*smallScale,1);
         Delay(1f, () => { targetBGScale = baseBGScale; });
     }
     public void TurnOff()
     {
+        on = false;
         targetBGScale = new Vector3(baseBGScale.x, baseBGScale.y*smallScale, 1);
         Delay(1f, () => { targetBGScale = Vector3.zero; });  
     }
