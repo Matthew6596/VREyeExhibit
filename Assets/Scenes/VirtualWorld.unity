@@ -40198,11 +40198,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Launcher_DartGun2
       objectReference: {fileID: 0}
-    - target: {fileID: 4852364250236269154, guid: e2840679a1f8b7c49b5cda0bf012de48,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6609292666412299025, guid: e2840679a1f8b7c49b5cda0bf012de48,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46067,11 +46062,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Launcher_DartGun2 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852364250236269154, guid: e2840679a1f8b7c49b5cda0bf012de48,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6609292666412299025, guid: e2840679a1f8b7c49b5cda0bf012de48,
         type: 3}
@@ -75522,11 +75512,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Launcher_DartGun2 (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852364250236269154, guid: e2840679a1f8b7c49b5cda0bf012de48,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6609292666412299025, guid: e2840679a1f8b7c49b5cda0bf012de48,
         type: 3}
