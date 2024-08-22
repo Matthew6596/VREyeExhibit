@@ -70,21 +70,22 @@ public class SpaceCanvas : MonoBehaviour
     }
     public void ResetWorld()
     {
-        submenu.gameObject.SetActive(true);
+        CloseSubMenu(true);
         bufferedAction = () => { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); };
     }
     public void ConfirmAction(bool confirmed)
     {
-        if(confirmed) bufferedAction();
-        else //Close confirm screen
-        {
-            for (int i = 0; i < submenu.childCount; i++) submenu.GetChild(i).gameObject.SetActive(false);
-            submenu.gameObject.SetActive(false);
-        }
+        if (confirmed) bufferedAction();
+        else CloseSubMenu(false);
+    }
+    public void CloseSubMenu(bool subMenuOn)
+    {
+        for (int i = 0; i < submenu.childCount; i++) submenu.GetChild(i).gameObject.SetActive(false);
+        submenu.gameObject.SetActive(subMenuOn);
     }
     public void SummonBtn()
     {
-        submenu.gameObject.SetActive(true);
+        CloseSubMenu(true);
         bufferedAction = () => 
         { 
             ZeroGravity.TryAddObject(Instantiate(summonPrefabs[summonDropdown.value], summonSpawn));
