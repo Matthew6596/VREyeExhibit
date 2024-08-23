@@ -9,10 +9,7 @@ public class ZeroGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Get all rigidbodies
-        rigidbodies = FindObjectsOfType<Rigidbody>();
-        //Make sure rigidbodies are/aren't using gravity
-        UpdateRigidbodies();
+        RefreshRigidbodies();
     }
 
     public void ToggleZeroGravity()
@@ -36,6 +33,13 @@ public class ZeroGravity : MonoBehaviour
             if(zeroGravityActive)
                 r.AddForce(new Vector3(Random.Range(-.1f, .1f), Random.Range(-.1f, .1f), Random.Range(-.1f, .1f)), ForceMode.Impulse);
         }
+    }
+    public void RefreshRigidbodies()
+    {
+        //Get all rigidbodies
+        rigidbodies = FindObjectsOfType<Rigidbody>();
+        //Make sure rigidbodies are/aren't using gravity
+        UpdateRigidbodies();
     }
     public static void AddRigidbody(Rigidbody rb)
     {
