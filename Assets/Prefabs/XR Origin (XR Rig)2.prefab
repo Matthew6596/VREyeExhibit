@@ -1061,7 +1061,7 @@ GameObject:
   - component: {fileID: 7539316607334383598}
   - component: {fileID: 2881171790868914189}
   - component: {fileID: 7717987668154154854}
-  - component: {fileID: 5504328750358626514}
+  - component: {fileID: 3990552445512687684}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1247,7 +1247,7 @@ MonoBehaviour:
       m_Action: Rotation
       m_Flags: 0
     m_Flags: 0
---- !u!114 &5504328750358626514
+--- !u!114 &3990552445512687684
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1305,7 +1305,8 @@ GameObject:
   - component: {fileID: 569201743255373177}
   - component: {fileID: 1177972575896662451}
   - component: {fileID: 4253452010365511877}
-  - component: {fileID: 4684905508911140491}
+  - component: {fileID: 319811662835072855}
+  - component: {fileID: 8348465336234643356}
   m_Layer: 2
   m_Name: XR Origin (XR Rig)2
   m_TagString: Player
@@ -1444,7 +1445,7 @@ MonoBehaviour:
   m_AimAssistRequiredSpeed: 0.25
   m_AimAssistPercent: 0.8
   m_AimAssistMaxSpeedPercent: 10
---- !u!114 &4684905508911140491
+--- !u!114 &319811662835072855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1458,6 +1459,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extraScale: 0.25
   isTrigger: 1
+--- !u!114 &8348465336234643356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4047031691638455927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633e8fe117aca914b9306bcdc439bf0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extraScale: 0.05
+  isTrigger: 0
 --- !u!1 &5704113815230258091
 GameObject:
   m_ObjectHideFlags: 0

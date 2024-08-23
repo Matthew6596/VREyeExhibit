@@ -34167,7 +34167,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1745
+  m_VersionIndex: 1742
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -34582,6 +34582,7 @@ GameObject:
   - component: {fileID: 280824864669913668}
   - component: {fileID: 7361827147558006029}
   - component: {fileID: 1247536527656935070}
+  - component: {fileID: 6642499427760137477}
   m_Layer: 0
   m_Name: cu_catVR
   m_TagString: Untagged
@@ -34739,10 +34740,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VibrateController, Assembly-CSharp
-        m_MethodName: VibrateStrong
-        m_Mode: 4
+      - m_Target: {fileID: 6642499427760137477}
+        m_TargetAssemblyTypeName: VibrateControllers, Assembly-CSharp
+        m_MethodName: VibrateLeft
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -34751,10 +34752,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VibrateController, Assembly-CSharp
-        m_MethodName: VibrateStrong
-        m_Mode: 4
+      - m_Target: {fileID: 6642499427760137477}
+        m_TargetAssemblyTypeName: VibrateControllers, Assembly-CSharp
+        m_MethodName: VibrateRight
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -34987,6 +34988,18 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: a7d9e4d566e981b42ad956a44b1e5c0f, type: 3}
   playOnStart: 0
   volume: 1
+--- !u!114 &6642499427760137477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2717079242297560665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c40f12fff8a91b46b8faaddb850333a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2753975816804604492
 GameObject:
   m_ObjectHideFlags: 0
