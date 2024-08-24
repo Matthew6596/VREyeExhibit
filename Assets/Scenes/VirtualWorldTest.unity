@@ -47232,7 +47232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doRotation: 0
   player: {fileID: 1034506135}
-  thrustPower: 0.008
+  thrustPower: 0.015
   particlesPrefab: {fileID: 4444325133579037419, guid: 760031e0c2cbf434581d7fc4231ed297,
     type: 3}
 --- !u!1 &1250511261
@@ -67148,7 +67148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doRotation: 0
   player: {fileID: 1034506135}
-  thrustPower: 0.008
+  thrustPower: 0.015
   particlesPrefab: {fileID: 4444325133579037419, guid: 760031e0c2cbf434581d7fc4231ed297,
     type: 3}
 --- !u!1 &1763168331
