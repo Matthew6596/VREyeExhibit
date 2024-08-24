@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class JetpackThruster : MonoBehaviour
 {
     //---Public Properties---
+    public bool doRotation = false;
     public GameObject player;
     //public DynamicMoveProvider moveProvider;
     public float thrustPower;
@@ -18,6 +19,7 @@ public class JetpackThruster : MonoBehaviour
     private float thrustInput;
     private InputAction thrustAction;
     private Vector3 velocity;
+    private Vector3 rotationVelocity;
     private GameObject particleInstance;
 
     private void Awake()
@@ -37,13 +39,31 @@ public class JetpackThruster : MonoBehaviour
     {
         playercc = player.GetComponent<CharacterController>();
         velocity= Vector3.zero;
+        rotationVelocity=Vector3.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
-        velocity += thrustInput * transform.forward;
+        float rotationPower, movementPower;
+
+        if (thrustInput > 0)
+        {
+            if (doRotation)
+            {
+                Vector3 a1 = transform.position - (player.transform.position + new Vector3(0, playercc.height / 2, 0));
+                //dot -> 0 when perpendicular, -> -1 or 1 when parallel
+                movementPower = Math.Abs(Vector3.Dot(a1.normalized, transform.forward));
+                Debug.Log(movementPower);
+                rotationPower = 1 - movementPower;
+                velocity += thrustInput * movementPower * transform.forward;
+                rotationVelocity += thrustInput * rotationPower * a1.magnitude * transform.forward;
+            }
+            else velocity += thrustInput * transform.forward;
+        }
         playercc.Move(velocity * Time.deltaTime);
+        player.transform.Rotate(rotationVelocity * Time.deltaTime);
+
     }
 
     public void Thrust(InputAction.CallbackContext ctx)

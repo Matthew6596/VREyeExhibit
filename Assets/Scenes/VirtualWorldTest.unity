@@ -47230,6 +47230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef42b15e6bef2d347af97158670a6bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doRotation: 0
   player: {fileID: 1034506135}
   thrustPower: 0.008
   particlesPrefab: {fileID: 4444325133579037419, guid: 760031e0c2cbf434581d7fc4231ed297,
@@ -67145,6 +67146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef42b15e6bef2d347af97158670a6bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doRotation: 0
   player: {fileID: 1034506135}
   thrustPower: 0.008
   particlesPrefab: {fileID: 4444325133579037419, guid: 760031e0c2cbf434581d7fc4231ed297,
