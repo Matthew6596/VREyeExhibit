@@ -3,14 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-//using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class JetpackThruster : MonoBehaviour
 {
     //---Public Properties---
     public bool doRotation = false;
     public GameObject player;
-    //public DynamicMoveProvider moveProvider;
     public float thrustPower;
     public GameObject particlesPrefab;
 
@@ -38,8 +36,6 @@ public class JetpackThruster : MonoBehaviour
     void Start()
     {
         playercc = player.GetComponent<CharacterController>();
-        velocity= Vector3.zero;
-        rotationVelocity=Vector3.zero;
     }
 
     // Update is called once per frame
@@ -51,7 +47,7 @@ public class JetpackThruster : MonoBehaviour
         {
             if (doRotation)
             {
-                Vector3 a1 = transform.position - (player.transform.position + new Vector3(0, playercc.height / 2, 0));
+                Vector3 a1 = transform.position - (player.transform.position + playercc.center);
                 //dot -> 0 when perpendicular, -> -1 or 1 when parallel
                 movementPower = Math.Abs(Vector3.Dot(a1.normalized, transform.forward));
                 Debug.Log(movementPower);
@@ -61,9 +57,9 @@ public class JetpackThruster : MonoBehaviour
             }
             else velocity += thrustInput * transform.forward;
         }
+        
         playercc.Move(velocity * Time.deltaTime);
         player.transform.Rotate(rotationVelocity * Time.deltaTime);
-
     }
 
     public void Thrust(InputAction.CallbackContext ctx)
@@ -73,4 +69,6 @@ public class JetpackThruster : MonoBehaviour
         if (ctx.canceled) Destroy(particleInstance);
         else if (ctx.started) particleInstance = Instantiate(particlesPrefab, transform);
     }
+
+    public void StopVelocity() { velocity = Vector3.zero; }
 }
