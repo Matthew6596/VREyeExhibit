@@ -36,6 +36,7 @@ public class JetpackThruster : MonoBehaviour
     void Start()
     {
         playercc = player.GetComponent<CharacterController>();
+        StartCoroutine(trackVelocity());
     }
 
     // Update is called once per frame
@@ -71,4 +72,18 @@ public class JetpackThruster : MonoBehaviour
     }
 
     public void StopVelocity() { velocity = Vector3.zero; }
+
+    IEnumerator trackVelocity()
+    {
+        Vector3 p1 = player.transform.position;
+        yield return new WaitForSeconds(0.1f);
+        Vector3 trackedVelocity = player.transform.position - p1;
+        if (Mathf.Approximately(trackedVelocity.x, 0)) velocity.x = 0;
+        //else if(Mathf.Abs(trackedVelocity.x - velocity.x) > 1) velocity.x = trackedVelocity.x;
+        if (Mathf.Approximately(trackedVelocity.y, 0)) velocity.y = 0;
+        //else if (Mathf.Abs(trackedVelocity.y - velocity.y) > 1) velocity.y = trackedVelocity.y;
+        if (Mathf.Approximately(trackedVelocity.z, 0)) velocity.z = 0;
+        //else if (Mathf.Abs(trackedVelocity.z - velocity.z) > 1) velocity.z = trackedVelocity.z;
+        StartCoroutine(trackVelocity());
+    }
 }
