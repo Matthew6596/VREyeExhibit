@@ -5,6 +5,8 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class ZeroGravity : MonoBehaviour
 {
+    public static ZeroGravity inst;
+
     public static bool zeroGravityActive = false;
     public static Rigidbody[] rigidbodies;
     public static JetpackThruster[] thrusters;
@@ -16,6 +18,7 @@ public class ZeroGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inst = this;
         moveProvider = FindObjectOfType<DynamicMoveProvider>();
         pMoveSpeed = moveProvider.moveSpeed;
         RefreshRigidbodies();

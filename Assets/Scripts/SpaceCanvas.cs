@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class SpaceCanvas : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class SpaceCanvas : MonoBehaviour
     public GameObject[] summonPrefabs;
     public Transform summonSpawn;
     public TMP_Dropdown summonDropdown;
+    public TeleportationAnchor[] teleportAnchors;
+    public TMP_Dropdown teleportDropdown;
+    public SpaceCanvas outsideCanvas;
 
 
     //
@@ -28,6 +32,8 @@ public class SpaceCanvas : MonoBehaviour
     Action bufferedAction;
     Transform showTextBoxArea;
     TMP_Text showText;
+    TeleportPlayer teleportPlayer;
+    CharacterController cc;
     
     //
 
@@ -35,6 +41,7 @@ public class SpaceCanvas : MonoBehaviour
     void Start()
     {
         bg=transform.GetChild(0);
+        cc = FindObjectOfType<CharacterController>();
         if (hasSubMenu)
         {
             submenu = bg.GetChild(1);
@@ -42,6 +49,7 @@ public class SpaceCanvas : MonoBehaviour
             showText = showTextBoxArea.GetChild(0).GetComponent<TMP_Text>();
             for (int i = 0; i < submenu.childCount; i++) submenu.GetChild(i).gameObject.SetActive(false);
             submenu.gameObject.SetActive(false);
+            teleportPlayer = GetComponent<TeleportPlayer>();
         }
         baseBGScale = bg.localScale;
         bg.transform.localScale = Vector3.zero;
@@ -102,6 +110,22 @@ public class SpaceCanvas : MonoBehaviour
         bufferedAction = () => 
         { 
             ZeroGravity.TryAddObject(Instantiate(summonPrefabs[summonDropdown.value], summonSpawn));
+        };
+    }
+    public void TeleportBtn()
+    {
+        CloseSubMenu(true);
+        bufferedAction = () =>
+        {
+            teleportPlayer.anchor = teleportAnchors[teleportDropdown.value];
+            //Debug.Log(teleportPlayer.anchor.teleportAnchorTransform.position);
+            teleportPlayer.Teleport();
+            Delay(teleportPlayer.provider.delayTime, () =>
+            {
+                TeleportScript.Teleport(cc, teleportPlayer.anchor);
+                ZeroGravity.inst.TogglePlayerGravity(true);
+                outsideCanvas.TurnOn();
+            });
         };
     }
     public void SetShowText(string txt)
