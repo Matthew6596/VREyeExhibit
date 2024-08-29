@@ -120,17 +120,12 @@ public class SpaceCanvas : MonoBehaviour
             teleportPlayer.anchor = teleportAnchors[teleportDropdown.value];
             //Debug.Log(teleportPlayer.anchor.teleportAnchorTransform.position);
             teleportPlayer.Teleport();
-            TeleportScript.Teleport(cc, teleportPlayer.anchor);
-            ZeroGravity.inst.TogglePlayerGravity(true);
-            /*Delay(1, () =>
+            Delay(teleportPlayer.provider.delayTime, () =>
             {
-                //cc.enabled = false;
-                //teleportPlayer.Teleport();
-                //cc.enabled = true;
+                TeleportScript.Teleport(cc, teleportPlayer.anchor);
                 ZeroGravity.inst.TogglePlayerGravity(true);
-                
-            });*/
-            outsideCanvas.TurnOn();
+                outsideCanvas.TurnOn();
+            });
         };
     }
     public void SetShowText(string txt)

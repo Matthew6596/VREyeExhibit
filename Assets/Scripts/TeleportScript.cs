@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -16,6 +18,11 @@ public class TeleportScript : MonoBehaviour
     {
         Teleport(FindObjectOfType<CharacterController>(), anchor);
     }
+    public void TeleportWDelay(TeleportPlayer tp)
+    {
+        StartCoroutine(delay(tp.provider.delayTime, () => { tp.Teleport(); Teleport(FindObjectOfType<CharacterController>(), tp.anchor);}));
+        
+    }
     private void OnTriggerEnter(UnityEngine.Collider other)
     {
         if (other.transform.CompareTag("Teleporter"))
@@ -28,5 +35,11 @@ public class TeleportScript : MonoBehaviour
             transform.position = targetTransform.position+manualOffset;
             cc.enabled = true;
         }
+    }
+
+    IEnumerator delay(float seconds, Action action)
+    {
+        yield return new WaitForSeconds(seconds);
+        action();
     }
 }
