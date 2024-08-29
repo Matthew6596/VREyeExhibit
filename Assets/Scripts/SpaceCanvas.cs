@@ -120,6 +120,7 @@ public class SpaceCanvas : MonoBehaviour
             teleportPlayer.anchor = teleportAnchors[teleportDropdown.value];
             //Debug.Log(teleportPlayer.anchor.teleportAnchorTransform.position);
             teleportPlayer.Teleport();
+            TeleportEffect.Activate();
             Delay(teleportPlayer.provider.delayTime, () =>
             {
                 TeleportScript.Teleport(cc, teleportPlayer.anchor);
