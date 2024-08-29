@@ -11,24 +11,34 @@ public class JetpackThruster : MonoBehaviour
     public GameObject player;
     public float thrustPower;
     public GameObject particlesPrefab;
+    public float brakeSensitivity = 4;
 
     //---Private Properties---
     private CharacterController playercc;
     private float thrustInput;
     private InputAction thrustAction;
+    private InputAction brakeAction;
     private Vector3 velocity;
     private Vector3 rotationVelocity;
     private GameObject particleInstance;
+    private float brakeAmt=1;
 
     private void Awake()
     {
         //---Set up input action---
         string hand = (gameObject.name.ToLower().Contains("left")) ? "LeftHand" : "RightHand";
+
         thrustAction = new("xr"+hand+"thrust",InputActionType.Value, "<XRController>{" + hand + "}/trigger",null,null,"Axis");
         thrustAction.performed += Thrust;
         thrustAction.started += Thrust;
         thrustAction.canceled += Thrust;
         thrustAction.Enable();
+
+        brakeAction = new("xr" + hand + "brake", InputActionType.Value, "<XRController>{" + hand + "}/grip", null, null, "Axis");
+        brakeAction.performed += Brake;
+        brakeAction.started += Brake;
+        brakeAction.canceled += Brake;
+        brakeAction.Enable();
         //---
     }
 
@@ -36,7 +46,7 @@ public class JetpackThruster : MonoBehaviour
     void Start()
     {
         playercc = player.GetComponent<CharacterController>();
-        StartCoroutine(trackVelocity());
+        //StartCoroutine(trackVelocity());
     }
 
     // Update is called once per frame
@@ -58,7 +68,8 @@ public class JetpackThruster : MonoBehaviour
             }
             else velocity += thrustInput * transform.forward;
         }
-        
+
+        velocity *= brakeAmt;
         playercc.Move(velocity * Time.deltaTime);
         player.transform.Rotate(rotationVelocity * Time.deltaTime);
     }
@@ -71,6 +82,13 @@ public class JetpackThruster : MonoBehaviour
 
         if (ctx.canceled) Destroy(particleInstance);
         else if (ctx.started) particleInstance = Instantiate(particlesPrefab, transform);
+    }
+    public void Brake(InputAction.CallbackContext ctx)
+    {
+        if (!ZeroGravity.zeroGravityActive) return;
+
+        brakeAmt = 1-ctx.ReadValue<float>()/brakeSensitivity;
+        
     }
 
     public void StopVelocity() { velocity = Vector3.zero; }
