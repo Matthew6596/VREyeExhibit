@@ -1,9 +1,21 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class TeleportScript : MonoBehaviour
 {
     public Vector3 manualOffset;
     public Transform targetTransform;
+    public static void Teleport(CharacterController cc, TeleportationAnchor anchor)
+    {
+        Transform pt = cc.transform;
+        cc.enabled = false;
+        pt.position = anchor.teleportAnchorTransform.position;
+        cc.enabled = true;
+    }
+    public void Teleport(TeleportationAnchor anchor)
+    {
+        Teleport(FindObjectOfType<CharacterController>(), anchor);
+    }
     private void OnTriggerEnter(UnityEngine.Collider other)
     {
         if (other.transform.CompareTag("Teleporter"))
