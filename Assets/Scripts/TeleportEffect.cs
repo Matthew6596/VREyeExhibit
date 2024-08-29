@@ -23,8 +23,8 @@ public class TeleportEffect : MonoBehaviour
     {
         inst = this;
         screenfxRender =  screenEffect.GetComponent<Image>();
-        screenfxRate = 1 / effectLifetime;
-        screenAfterfxRate = -1 / afterEffectLifetime;
+        screenfxRate = 1 / effectLifetime/2;
+        screenAfterfxRate = -1 / afterEffectLifetime/2;
         screenfxCol = screenfxRender.color;
     }
 
@@ -47,9 +47,11 @@ public class TeleportEffect : MonoBehaviour
         GameObject particles=null;
         if(particlePrefab!=null) particles = Instantiate(particlePrefab);
         //screenEffect.SetActive(true);
+        _active = true;
 
         yield return new WaitForSeconds(effectLifetime);
 
+        _active = false;
         //screenEffect.SetActive(false);
         if(particles!=null) Destroy(particles);
     }

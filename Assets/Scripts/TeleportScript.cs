@@ -20,8 +20,9 @@ public class TeleportScript : MonoBehaviour
     }
     public void TeleportWDelay(TeleportPlayer tp)
     {
+        tp.Teleport();
         TeleportEffect.Activate();
-        StartCoroutine(delay(tp.provider.delayTime, () => { tp.Teleport(); Teleport(FindObjectOfType<CharacterController>(), tp.anchor);}));
+        StartCoroutine(delay(tp.provider.delayTime, () => { Teleport(FindObjectOfType<CharacterController>(), tp.anchor);}));
     }
     private void OnTriggerEnter(UnityEngine.Collider other)
     {
