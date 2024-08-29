@@ -22,11 +22,13 @@ public class TeleportEffect : MonoBehaviour
     private Color screenfxCol;
     private Color flashfxCol;
     private bool flashActive = false;
+    private Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
         inst = this;
+        player = FindObjectOfType<CharacterController>().transform;
         screenfxRender =  screenEffect.GetComponent<Image>();
         flashfxImg = flashEffect.GetComponent<Image>();
         screenfxRate = 1 / effectLifetime/2;
@@ -55,10 +57,9 @@ public class TeleportEffect : MonoBehaviour
     IEnumerator doParticleEffects()
     {
         GameObject particles=null;
-        if(particlePrefab!=null) particles = Instantiate(particlePrefab);
+        if(particlePrefab!=null) particles = Instantiate(particlePrefab,player);
         //screenEffect.SetActive(true);
         _active = true;
-
         yield return new WaitForSeconds(effectLifetime/2);
         flashActive = true;
         yield return new WaitForSeconds(effectLifetime/2);
