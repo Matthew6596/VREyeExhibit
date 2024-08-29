@@ -16,7 +16,7 @@ public class SpaceCanvas : MonoBehaviour
     public TMP_Dropdown summonDropdown;
     public TeleportationAnchor[] teleportAnchors;
     public TMP_Dropdown teleportDropdown;
-    public SpaceCanvas outsideCanvas;
+    public SpaceCanvas[] outsideCanvas;
 
 
     //
@@ -125,7 +125,8 @@ public class SpaceCanvas : MonoBehaviour
             {
                 TeleportScript.Teleport(cc, teleportPlayer.anchor);
                 ZeroGravity.inst.TogglePlayerGravity(true);
-                outsideCanvas.TurnOn();
+                outsideCanvas[0].TurnOn();
+                outsideCanvas[1].TurnOn();
             });
         };
     }
