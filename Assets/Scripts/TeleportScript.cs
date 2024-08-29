@@ -13,6 +13,11 @@ public class TeleportScript : MonoBehaviour
         cc.enabled = false;
         pt.position = anchor.teleportAnchorTransform.position;
         cc.enabled = true;
+
+        JetpackThruster[] thrusters = FindObjectsOfType<JetpackThruster>();
+        thrusters[0].StopVelocity();
+        thrusters[1].StopVelocity();
+
     }
     public void Teleport(TeleportationAnchor anchor)
     {
