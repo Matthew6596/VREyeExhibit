@@ -16,7 +16,7 @@ public class SpaceCanvas : MonoBehaviour
     public TMP_Dropdown summonDropdown;
     public TeleportationAnchor[] teleportAnchors;
     public TMP_Dropdown teleportDropdown;
-    public SpaceCanvas outsideCanvas;
+    public SpaceCanvas[] outsideCanvas;
 
 
     //
@@ -120,11 +120,13 @@ public class SpaceCanvas : MonoBehaviour
             teleportPlayer.anchor = teleportAnchors[teleportDropdown.value];
             //Debug.Log(teleportPlayer.anchor.teleportAnchorTransform.position);
             teleportPlayer.Teleport();
+            TeleportEffect.Activate();
             Delay(teleportPlayer.provider.delayTime, () =>
             {
                 TeleportScript.Teleport(cc, teleportPlayer.anchor);
                 ZeroGravity.inst.TogglePlayerGravity(true);
-                outsideCanvas.TurnOn();
+                outsideCanvas[0].TurnOn();
+                outsideCanvas[1].TurnOn();
             });
         };
     }

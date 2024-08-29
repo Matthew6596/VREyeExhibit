@@ -21,7 +21,7 @@ public class TriggerButton : MonoBehaviour
     public void HoveredOn(HoverEnterEventArgs a) 
     {
         string controllerName = a.interactorObject.transform.parent.name;
-        Debug.Log(controllerName+" hovered button");
+        //Debug.Log(controllerName+" hovered button");
         if (controllerName.ToLower().Contains("left")) hoveredLeft = true;
         else hoveredRight = true;
     }

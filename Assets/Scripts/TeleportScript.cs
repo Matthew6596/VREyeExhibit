@@ -13,6 +13,11 @@ public class TeleportScript : MonoBehaviour
         cc.enabled = false;
         pt.position = anchor.teleportAnchorTransform.position;
         cc.enabled = true;
+
+        JetpackThruster[] thrusters = FindObjectsOfType<JetpackThruster>();
+        thrusters[0].StopVelocity();
+        thrusters[1].StopVelocity();
+
     }
     public void Teleport(TeleportationAnchor anchor)
     {
@@ -20,8 +25,9 @@ public class TeleportScript : MonoBehaviour
     }
     public void TeleportWDelay(TeleportPlayer tp)
     {
-        StartCoroutine(delay(tp.provider.delayTime, () => { tp.Teleport(); Teleport(FindObjectOfType<CharacterController>(), tp.anchor);}));
-        
+        tp.Teleport();
+        TeleportEffect.Activate();
+        StartCoroutine(delay(tp.provider.delayTime, () => { Teleport(FindObjectOfType<CharacterController>(), tp.anchor);}));
     }
     private void OnTriggerEnter(UnityEngine.Collider other)
     {
