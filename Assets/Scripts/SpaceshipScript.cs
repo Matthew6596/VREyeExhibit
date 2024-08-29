@@ -12,8 +12,8 @@ public class SpaceshipScript : MonoBehaviour
     GameObject player;
     bool inShip = false;
     public Transform cockPit;
-    public int moveSpeed = 1;
-    public int turnSpeed = 1;
+    public float moveSpeed = 0.05f;
+    public float turnSpeed = 0.05f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +23,7 @@ public class SpaceshipScript : MonoBehaviour
 
     public void Update()
     {
-        if(inShip)
-        {
-            GetComponent<TeleportPlayer>().Teleport(); //CHANGE PARENT OF PLAYER INSTEAD
-        }
+        
     }
 
     public void PlayerEnterShip()
@@ -35,6 +32,7 @@ public class SpaceshipScript : MonoBehaviour
 
         //Player Movement
         player.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.SetActive(false); //Disable Player Move
+        player.transform.parent = gameObject.transform;
 
         //Enable Interior
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
@@ -46,6 +44,7 @@ public class SpaceshipScript : MonoBehaviour
 
         //PlayerMovement
         player.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.SetActive(true); //Renable Player Move
+        player.transform.parent = null;
 
         //Disable Interior
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
