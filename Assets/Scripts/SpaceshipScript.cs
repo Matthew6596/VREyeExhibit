@@ -24,31 +24,30 @@ public class SpaceshipScript : MonoBehaviour
         shipMove = gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(inShip)
-        {
-            if (player.transform.position == cockPit.position)
-            {
-                player.transform.GetChild(1).gameObject.SetActive(false);
-            }
-        }
-    }
-
     public void PlayerEnterShip()
     {
-        Debug.Log("Selected");
         inShip = true;
+
+        //Movement
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        player.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.SetActive(false); //Disable Player Move
         characterControllerDriver.locomotionProvider = shipMove.GetComponent<DynamicMoveProvider>();
+
+        //Enable Interior
+        gameObject.transform.GetChild(1).gameObject.SetActive(true);
     }
 
     public void PlayerExitShip()
     {
         inShip = false;
+
+        //Movement
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        player.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.SetActive(true); //Renable Player Move
         characterControllerDriver.locomotionProvider = playerMove.GetComponent<DynamicMoveProvider>();
+
+        //Disable Interior
+        gameObject.transform.GetChild(1).gameObject.SetActive(false);
     }
 
 }
