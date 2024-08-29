@@ -65,6 +65,8 @@ public class JetpackThruster : MonoBehaviour
 
     public void Thrust(InputAction.CallbackContext ctx)
     {
+        if (!ZeroGravity.zeroGravityActive) return;
+
         thrustInput = ctx.ReadValue<float>()*thrustPower;
 
         if (ctx.canceled) Destroy(particleInstance);
