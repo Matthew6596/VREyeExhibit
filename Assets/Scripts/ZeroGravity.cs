@@ -12,7 +12,7 @@ public class ZeroGravity : MonoBehaviour
     public static Rigidbody[] rigidbodies;
     public static JetpackThruster[] thrusters;
     public static DynamicMoveProvider moveProvider;
-    private static float pMoveSpeed;
+    //private static float pMoveSpeed;
 
     public GameObject leftHand, rightHand, leftThruster, rightThruster;
     public bool zeroGravityStartOn = false;
@@ -22,7 +22,6 @@ public class ZeroGravity : MonoBehaviour
     {
         inst = this;
         moveProvider = FindObjectOfType<DynamicMoveProvider>();
-        pMoveSpeed = moveProvider.moveSpeed;
         RefreshRigidbodies();
         StartCoroutine(tryGetThrusters());
     }
@@ -89,7 +88,6 @@ public class ZeroGravity : MonoBehaviour
             leftHand.SetActive(false);
             rightHand.SetActive(false);
             moveProvider.useGravity = false;
-            pMoveSpeed = moveProvider.moveSpeed;
             moveProvider.moveSpeed = 0;
         }
         else
@@ -102,7 +100,7 @@ public class ZeroGravity : MonoBehaviour
             rightHand.SetActive(true);
             //moveProvider.enabled = true;
             moveProvider.useGravity = true;
-            moveProvider.moveSpeed = pMoveSpeed;
+            moveProvider.moveSpeed = 1;
         }
     }
     public void TogglePlayerGravityWDelay(bool on)
