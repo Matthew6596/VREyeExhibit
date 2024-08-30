@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
@@ -13,6 +14,7 @@ public class ZeroGravity : MonoBehaviour
     public static DynamicMoveProvider moveProvider;
     private static float pMoveSpeed;
 
+    public GameObject leftHand, rightHand, leftThruster, rightThruster;
     public bool zeroGravityStartOn = false;
 
     // Start is called before the first frame update
@@ -82,6 +84,10 @@ public class ZeroGravity : MonoBehaviour
         {
             thrusters[0].enabled = true;
             thrusters[1].enabled = true;
+            leftThruster.SetActive(true);
+            rightThruster.SetActive(true);
+            leftHand.SetActive(false);
+            rightHand.SetActive(false);
             moveProvider.useGravity = false;
             pMoveSpeed = moveProvider.moveSpeed;
             moveProvider.moveSpeed = 0;
@@ -90,9 +96,23 @@ public class ZeroGravity : MonoBehaviour
         {
             thrusters[0].enabled = false;
             thrusters[1].enabled = false;
+            leftThruster.SetActive(false);
+            rightThruster.SetActive(false);
+            leftHand.SetActive(true);
+            rightHand.SetActive(true);
             //moveProvider.enabled = true;
             moveProvider.useGravity = true;
             moveProvider.moveSpeed = pMoveSpeed;
         }
+    }
+    public void TogglePlayerGravityWDelay(bool on)
+    {
+        StartCoroutine(delay(on));
+    }
+
+    IEnumerator delay(bool on)
+    {
+        yield return new WaitForSeconds(1.5f);
+        TogglePlayerGravity(on);
     }
 }

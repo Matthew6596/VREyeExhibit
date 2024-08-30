@@ -15,14 +15,14 @@ public class TeleportScript : MonoBehaviour
         cc.enabled = true;
 
         JetpackThruster[] thrusters = FindObjectsOfType<JetpackThruster>();
-        thrusters[0].StopVelocity();
-        thrusters[1].StopVelocity();
+        if (thrusters != null && thrusters.Length > 0)
+        {
+            thrusters[0].StopVelocity();
+            thrusters[1].StopVelocity();
+        }
 
     }
-    public void Teleport(TeleportationAnchor anchor)
-    {
-        Teleport(FindObjectOfType<CharacterController>(), anchor);
-    }
+    public void Teleport(TeleportationAnchor anchor) { Teleport(FindObjectOfType<CharacterController>(), anchor); }
     public void TeleportWDelay(TeleportPlayer tp)
     {
         tp.Teleport();
