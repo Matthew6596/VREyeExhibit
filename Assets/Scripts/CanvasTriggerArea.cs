@@ -21,6 +21,7 @@ public class CanvasTriggerArea : MonoBehaviour
     }*/
     private void OnTriggerEnter(Collider other)
     {
+        if (canvas == null) return;
         if (other.gameObject.CompareTag("Player"))
         {
             if (turnOn && !canvas.on) { canvas.TurnOn(); pqs.Play(); }
