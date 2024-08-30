@@ -55,7 +55,7 @@ public class SpaceshipScript : MonoBehaviour
         if(inShip)
         {
             Debug.Log("Moving Forwards");
-            gameObject.transform.position += new Vector3(0, 0, moveSpeed);
+            gameObject.transform.position += transform.forward * moveSpeed;
         }
     }
     public void MoveShipBackward()
@@ -63,21 +63,21 @@ public class SpaceshipScript : MonoBehaviour
         if (inShip)
         {
             Debug.Log("Moving Back");
-            gameObject.transform.position -= new Vector3(0, 0, moveSpeed);
+            gameObject.transform.position += transform.forward * -moveSpeed;
         }
     }
     public void TurnShipLeft()
     {
         if (inShip)
         { //Rotate on Y
-            gameObject.transform.Rotate(new Vector3(0, turnSpeed, 0));
+            gameObject.transform.Rotate(new Vector3(0, -turnSpeed, 0));
         }
     }
     public void TurnShipRight()
     {
         if (inShip)
         { //Rotate on Y
-            gameObject.transform.Rotate(new Vector3(0, -turnSpeed, 0));
+            gameObject.transform.Rotate(new Vector3(0, turnSpeed, 0));
         }
     }
 }
