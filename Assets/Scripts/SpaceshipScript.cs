@@ -44,7 +44,7 @@ public class SpaceshipScript : MonoBehaviour
 
         //PlayerMovement
         player.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.SetActive(true); //Renable Player Move
-        player.transform.parent = null;
+        player.transform.parent = GameObject.Find("===XR Stuff===").transform;
 
         //Disable Interior
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
