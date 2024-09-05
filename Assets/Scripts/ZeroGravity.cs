@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Inputs;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class ZeroGravity : MonoBehaviour
@@ -14,12 +18,14 @@ public class ZeroGravity : MonoBehaviour
     public static DynamicMoveProvider moveProvider;
     //private static float pMoveSpeed;
 
+    
     public GameObject leftHand, rightHand, leftThruster, rightThruster;
     public bool zeroGravityStartOn = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        InputDevices.deviceConnected += CheckControllerState;
         inst = this;
         moveProvider = FindObjectOfType<DynamicMoveProvider>();
         RefreshRigidbodies();
@@ -79,7 +85,12 @@ public class ZeroGravity : MonoBehaviour
     public void TogglePlayerGravity(bool on)
     {
         zeroGravityActive = on;
-        if (on)
+        CheckControllerState(new());
+    }
+    public void CheckControllerState(UnityEngine.XR.InputDevice e)
+    {
+        while (thrusters == null || thrusters.Length < 2) thrusters = FindObjectsOfType<JetpackThruster>();
+        if (zeroGravityActive)
         {
             thrusters[0].enabled = true;
             thrusters[1].enabled = true;
@@ -98,11 +109,11 @@ public class ZeroGravity : MonoBehaviour
             rightThruster.SetActive(false);
             leftHand.SetActive(true);
             rightHand.SetActive(true);
-            //moveProvider.enabled = true;
             moveProvider.useGravity = true;
             moveProvider.moveSpeed = 1;
         }
     }
+
     public void TogglePlayerGravityWDelay(bool on)
     {
         StartCoroutine(delay(on));
