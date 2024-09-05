@@ -7,16 +7,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class VibrateControllers : MonoBehaviour
 {
     private VibrateController[] vibrateControllers;
-
     private VibrateController[] leftVibrates= new VibrateController[0], rightVibrates= new VibrateController[0];
-
-    //private XRGrabInteractable simpleInteractable;
 
     private void Start()
     {
-        //simpleInteractable = GetComponent<XRGrabInteractable>();
-        //simpleInteractable.selectEntered.AddListener((SelectEnterEventArgs a) => { GrabOn(a); });
-        //simpleInteractable.selectExited.AddListener((SelectExitEventArgs a) => { GrabOff(a); });
+        StopVibrate(true);
+        StopVibrate(false);
     }
     public void GrabOn(SelectEnterEventArgs a)
     {
