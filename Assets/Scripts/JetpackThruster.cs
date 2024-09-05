@@ -22,6 +22,7 @@ public class JetpackThruster : MonoBehaviour
     private Vector3 rotationVelocity;
     private GameObject particleInstance;
     private float brakeAmt=1;
+    private VibrateController vibrate;
 
     private void Awake()
     {
@@ -56,6 +57,8 @@ public class JetpackThruster : MonoBehaviour
 
         if (thrustInput > 0)
         {
+            vibrate.VibrateWeak(Time.deltaTime);
+
             if (doRotation)
             {
                 Vector3 a1 = transform.position - (player.transform.position + playercc.center);

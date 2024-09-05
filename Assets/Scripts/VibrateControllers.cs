@@ -6,81 +6,61 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class VibrateControllers : MonoBehaviour
 {
-    //private VibrateController[] vibrateControllers;
+    private VibrateController[] vibrateControllers;
 
-    private GameObject leftController, rightController, leftController2, rightController2;
-    private VibrateController vibrateLeftController, vibrateRightController, vibrateLeftController2, vibrateRightController2;
+    private VibrateController[] leftVibrates, rightVibrates;
 
-    private XRGrabInteractable simpleInteractable;
+    //private XRGrabInteractable simpleInteractable;
 
     private void Start()
     {
-        simpleInteractable = GetComponent<XRGrabInteractable>();
-        simpleInteractable.selectEntered.AddListener((SelectEnterEventArgs a) => { GrabOn(a); });
-        simpleInteractable.selectExited.AddListener((SelectExitEventArgs a) => { GrabOff(a); });
+        //simpleInteractable = GetComponent<XRGrabInteractable>();
+        //simpleInteractable.selectEntered.AddListener((SelectEnterEventArgs a) => { GrabOn(a); });
+        //simpleInteractable.selectExited.AddListener((SelectExitEventArgs a) => { GrabOff(a); });
     }
     public void GrabOn(SelectEnterEventArgs a)
     {
-        string controllerName = a.interactorObject.transform.parent.name;
+        string controllerName = a.interactorObject.transform.parent.name.ToLower();
         Debug.Log(controllerName);
-        if (controllerName.ToLower().Contains("left")) VibrateLeft();
-        if (controllerName.ToLower().Contains("right")) VibrateRight();
+        if (controllerName.Contains("left")) Vibrate(true);
+        if (controllerName.Contains("right")) Vibrate(false);
     }
     public void GrabOff(SelectExitEventArgs a)
     {
-        string controllerName = a.interactorObject.transform.parent.name;
-        if (controllerName.ToLower().Contains("left")) StopVibrateLeft();
-        if (controllerName.ToLower().Contains("right")) StopVibrateRight();
+        string controllerName = a.interactorObject.transform.parent.name.ToLower();
+        if (controllerName.Contains("left")) StopVibrate(true);
+        if (controllerName.Contains("right")) StopVibrate(false);
     }
 
     private void GetLeft()
     {
-        if (vibrateLeftController == null)
+        vibrateControllers = FindObjectsOfType<VibrateController>();
+        List<VibrateController> lefts = new List<VibrateController>();
+        for(int i=0; i<vibrateControllers.Length; i++)
         {
-            leftController = GameObject.Find("Left Controller");
-            vibrateLeftController = leftController.GetComponent<VibrateController>();
+            if (vibrateControllers[i].gameObject.name.Contains("Left")) lefts.Add(vibrateControllers[i]);
         }
-        if (vibrateLeftController2 == null)
-        {
-            leftController2 = GameObject.Find("Left Controller (1)");
-            vibrateLeftController2 = leftController2.GetComponent<VibrateController>();
-        }
+        leftVibrates = lefts.ToArray();
+
     }
     private void GetRight()
     {
-        if (vibrateRightController == null)
+        vibrateControllers = FindObjectsOfType<VibrateController>();
+        List<VibrateController> rights = new List<VibrateController>();
+        for (int i = 0; i < vibrateControllers.Length; i++)
         {
-            rightController = GameObject.Find("Right Controller");
-            vibrateRightController = rightController.GetComponent<VibrateController>();
+            if (vibrateControllers[i].gameObject.name.Contains("Right")) rights.Add(vibrateControllers[i]);
         }
-        if (vibrateRightController2 == null)
-        {
-            rightController2 = GameObject.Find("Right Controller (1)");
-            vibrateRightController2 = rightController2.GetComponent<VibrateController>();
-        }
+        leftVibrates = rights.ToArray();
     }
-    public void VibrateLeft()
+    public void Vibrate(bool left)
     {
         GetLeft();
-        if(vibrateLeftController!= null) vibrateLeftController.VibrateStrong(10000);
-        if(vibrateLeftController2!=null) vibrateLeftController2.VibrateStrong(10000);
+        foreach(VibrateController c in left ? leftVibrates : rightVibrates) c.VibrateStrong(10000);
     }
-    public void StopVibrateLeft()
+    public void StopVibrate(bool left)
     {
         GetLeft();
-        if (vibrateLeftController != null) vibrateLeftController.VibrateWeak(0.001f);
-        if(vibrateLeftController2!=null)vibrateLeftController2.VibrateWeak(0.001f);
-    }
-    public void StopVibrateRight()
-    {
-        GetRight();
-        if (vibrateRightController != null) vibrateRightController.VibrateWeak(0.001f);
-        if(vibrateRightController2!=null)vibrateRightController2.VibrateWeak(0.001f);
-    }
-    public void VibrateRight()
-    {
-        GetRight();
-        if (vibrateRightController != null) vibrateRightController.VibrateStrong(10000);
-        if(vibrateRightController2!=null)vibrateRightController2.VibrateStrong(10000);
+        foreach (VibrateController c in left?leftVibrates:rightVibrates) c.VibrateWeak(0.001f);
     }
 }
