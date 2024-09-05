@@ -7,16 +7,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class VibrateControllers : MonoBehaviour
 {
     private VibrateController[] vibrateControllers;
-
     private VibrateController[] leftVibrates= new VibrateController[0], rightVibrates= new VibrateController[0];
-
-    //private XRGrabInteractable simpleInteractable;
 
     private void Start()
     {
-        //simpleInteractable = GetComponent<XRGrabInteractable>();
-        //simpleInteractable.selectEntered.AddListener((SelectEnterEventArgs a) => { GrabOn(a); });
-        //simpleInteractable.selectExited.AddListener((SelectExitEventArgs a) => { GrabOff(a); });
+        StopVibrate(true);
+        StopVibrate(false);
     }
     public void GrabOn(SelectEnterEventArgs a)
     {
@@ -32,35 +28,26 @@ public class VibrateControllers : MonoBehaviour
         if (controllerName.Contains("right")) StopVibrate(false);
     }
 
-    private void GetLeft()
+    private void GetVibrates(bool left)
     {
+        string n = left ? "left" : "right";
         vibrateControllers = FindObjectsOfType<VibrateController>();
-        List<VibrateController> lefts = new List<VibrateController>();
+        List<VibrateController> v = new();
         for(int i=0; i<vibrateControllers.Length; i++)
         {
-            if (vibrateControllers[i].gameObject.name.Contains("Left")) lefts.Add(vibrateControllers[i]);
+            if (vibrateControllers[i].gameObject.name.ToLower().Contains(n)) v.Add(vibrateControllers[i]);
         }
-        leftVibrates = lefts.ToArray();
-
-    }
-    private void GetRight()
-    {
-        vibrateControllers = FindObjectsOfType<VibrateController>();
-        List<VibrateController> rights = new List<VibrateController>();
-        for (int i = 0; i < vibrateControllers.Length; i++)
-        {
-            if (vibrateControllers[i].gameObject.name.Contains("Right")) rights.Add(vibrateControllers[i]);
-        }
-        rightVibrates = rights.ToArray();
+        if (left) leftVibrates = v.ToArray();
+        else rightVibrates = v.ToArray();
     }
     public void Vibrate(bool left)
     {
-        GetLeft();
+        GetVibrates(left);
         foreach(VibrateController c in left ? leftVibrates : rightVibrates) c.VibrateStrong(10000);
     }
     public void StopVibrate(bool left)
     {
-        GetLeft();
+        GetVibrates(left);
         foreach (VibrateController c in left?leftVibrates:rightVibrates) c.VibrateWeak(0.001f);
     }
 }
