@@ -8,7 +8,7 @@ public class VibrateControllers : MonoBehaviour
 {
     private VibrateController[] vibrateControllers;
 
-    private VibrateController[] leftVibrates, rightVibrates;
+    private VibrateController[] leftVibrates= new VibrateController[0], rightVibrates= new VibrateController[0];
 
     //private XRGrabInteractable simpleInteractable;
 
@@ -51,7 +51,7 @@ public class VibrateControllers : MonoBehaviour
         {
             if (vibrateControllers[i].gameObject.name.Contains("Right")) rights.Add(vibrateControllers[i]);
         }
-        leftVibrates = rights.ToArray();
+        rightVibrates = rights.ToArray();
     }
     public void Vibrate(bool left)
     {
