@@ -6,17 +6,15 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class VibrateControllers : MonoBehaviour
 {
-    private VibrateController[] vibrateControllers;
+    //private VibrateController[] vibrateControllers;
 
-    private GameObject leftController;
-    private GameObject rightController;
-    private VibrateController vibrateLeftController;
-    private VibrateController vibrateRightController;
+    private GameObject leftController, rightController, leftController2, rightController2;
+    private VibrateController vibrateLeftController, vibrateRightController, vibrateLeftController2, vibrateRightController2;
 
     //public UnityEvent action;
     private XRGrabInteractable simpleInteractable;
-    bool hoveredLeft = false;
-    bool hoveredRight = false;
+    //bool hoveredLeft = false;
+    //bool hoveredRight = false;
     private void Start()
     {
         simpleInteractable = GetComponent<XRGrabInteractable>();
@@ -52,7 +50,9 @@ public class VibrateControllers : MonoBehaviour
         if (vibrateLeftController == null)
         {
             leftController = GameObject.Find("Left Controller");
+            leftController2 = GameObject.Find("Left Controller (1)");
             vibrateLeftController = leftController.GetComponent<VibrateController>();
+            vibrateLeftController2 = leftController2.GetComponent<VibrateController>();
         }
     }
     private void GetRight()
@@ -60,27 +60,33 @@ public class VibrateControllers : MonoBehaviour
         if (vibrateRightController == null)
         {
             rightController = GameObject.Find("Right Controller");
+            rightController2 = GameObject.Find("Right Controller (1)");
             vibrateRightController = rightController.GetComponent<VibrateController>();
+            vibrateRightController2 = rightController2.GetComponent<VibrateController>();
         }
     }
     public void VibrateLeft()
     {
         GetLeft();
         vibrateLeftController.VibrateStrong(10000);
+        vibrateLeftController2.VibrateStrong(10000);
     }
     public void StopVibrateLeft()
     {
         GetLeft();
         vibrateLeftController.VibrateWeak(0.001f);
+        vibrateLeftController2.VibrateWeak(0.001f);
     }
     public void StopVibrateRight()
     {
         GetRight();
         vibrateRightController.VibrateWeak(0.001f);
+        vibrateRightController2.VibrateWeak(0.001f);
     }
     public void VibrateRight()
     {
         GetRight();
         vibrateRightController.VibrateStrong(10000);
+        vibrateRightController2.VibrateStrong(10000);
     }
 }
