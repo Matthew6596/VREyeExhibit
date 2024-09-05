@@ -11,6 +11,7 @@ public class SpaceshipScript : MonoBehaviour
 {
     GameObject player;
     bool inShip = false;
+    bool selectExited = false;
     public Transform cockPit;
     public float moveSpeed = 0.05f;
     public float turnSpeed = 0.05f;
@@ -85,5 +86,10 @@ public class SpaceshipScript : MonoBehaviour
         { //Rotate on Y
             gameObject.transform.Rotate(new Vector3(0, turnSpeed, 0));
         }
+    }
+
+    public void SetSelectExited(bool state)
+    {
+        selectExited = state;
     }
 }
