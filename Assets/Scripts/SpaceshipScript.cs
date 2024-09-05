@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Inputs;
-using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class SpaceshipScript : MonoBehaviour
 {
@@ -16,6 +13,10 @@ public class SpaceshipScript : MonoBehaviour
     public float moveSpeed = 0.05f;
     public float turnSpeed = 0.05f;
 
+    float velocity=0;
+    float rotation=0;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,10 @@ public class SpaceshipScript : MonoBehaviour
 
     public void Update()
     {
-        
+        if (!inShip) return;
+
+        gameObject.transform.Rotate(new Vector3(0, rotation*Time.deltaTime, 0));
+        gameObject.transform.position += transform.forward * velocity * Time.deltaTime;
     }
 
     public void PlayerEnterShip()
@@ -55,6 +59,15 @@ public class SpaceshipScript : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f); //wait for teleport effect
         gameObject.transform.GetChild(0).gameObject.SetActive(state);
+    }
+
+    public void SetMoveVal(bool negative)
+    {
+        if(inShip) velocity += negative ? -moveSpeed : moveSpeed;
+    }
+    public void SetRotateVal(bool negative)
+    {
+        if (inShip) rotation += negative ? -turnSpeed : turnSpeed;
     }
 
     public void MoveShipForward()
