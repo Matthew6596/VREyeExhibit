@@ -25,11 +25,10 @@ public class ZeroGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InputDevices.deviceConnected += CheckControllerState;
         inst = this;
         moveProvider = FindObjectOfType<DynamicMoveProvider>();
         RefreshRigidbodies();
-        //StartCoroutine(tryGetThrusters());
+        StartCoroutine(checkControllers());
     }
 
     public void ToggleZeroGravity(){ToggleZeroGravity(!zeroGravityActive);}
@@ -82,12 +81,19 @@ public class ZeroGravity : MonoBehaviour
         ToggleZeroGravity(zeroGravityStartOn);
     }*/
 
+    IEnumerator checkControllers()
+    {
+        CheckControllerState();
+        yield return new WaitForSeconds(1);
+        StartCoroutine(checkControllers());
+    }
+
     public void TogglePlayerGravity(bool on)
     {
         zeroGravityActive = on;
-        CheckControllerState(new());
+        CheckControllerState();
     }
-    public void CheckControllerState(UnityEngine.XR.InputDevice e)
+    public void CheckControllerState()
     {
         //while (thrusters == null || thrusters.Length < 2) thrusters = FindObjectsOfType<JetpackThruster>();
         if (zeroGravityActive)
