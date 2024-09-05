@@ -14,7 +14,7 @@ public class ZeroGravity : MonoBehaviour
 
     public static bool zeroGravityActive = false;
     public static Rigidbody[] rigidbodies;
-    public static JetpackThruster[] thrusters;
+    //public static JetpackThruster[] thrusters;
     public static DynamicMoveProvider moveProvider;
     //private static float pMoveSpeed;
 
@@ -29,7 +29,7 @@ public class ZeroGravity : MonoBehaviour
         inst = this;
         moveProvider = FindObjectOfType<DynamicMoveProvider>();
         RefreshRigidbodies();
-        StartCoroutine(tryGetThrusters());
+        //StartCoroutine(tryGetThrusters());
     }
 
     public void ToggleZeroGravity(){ToggleZeroGravity(!zeroGravityActive);}
@@ -72,7 +72,7 @@ public class ZeroGravity : MonoBehaviour
         if (rb != null) AddRigidbody(rb);
     }
 
-    IEnumerator tryGetThrusters()
+    /*IEnumerator tryGetThrusters()
     {
         while (thrusters == null || thrusters.Length < 2)
         {
@@ -80,7 +80,7 @@ public class ZeroGravity : MonoBehaviour
             yield return null;
         }
         ToggleZeroGravity(zeroGravityStartOn);
-    }
+    }*/
 
     public void TogglePlayerGravity(bool on)
     {
@@ -89,11 +89,11 @@ public class ZeroGravity : MonoBehaviour
     }
     public void CheckControllerState(UnityEngine.XR.InputDevice e)
     {
-        while (thrusters == null || thrusters.Length < 2) thrusters = FindObjectsOfType<JetpackThruster>();
+        //while (thrusters == null || thrusters.Length < 2) thrusters = FindObjectsOfType<JetpackThruster>();
         if (zeroGravityActive)
         {
-            thrusters[0].enabled = true;
-            thrusters[1].enabled = true;
+            //thrusters[0].enabled = true;
+            //thrusters[1].enabled = true;
             leftThruster.SetActive(true);
             rightThruster.SetActive(true);
             leftHand.SetActive(false);
@@ -103,8 +103,8 @@ public class ZeroGravity : MonoBehaviour
         }
         else
         {
-            thrusters[0].enabled = false;
-            thrusters[1].enabled = false;
+            //thrusters[0].enabled = false;
+            //thrusters[1].enabled = false;
             leftThruster.SetActive(false);
             rightThruster.SetActive(false);
             leftHand.SetActive(true);
