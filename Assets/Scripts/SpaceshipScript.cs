@@ -35,7 +35,7 @@ public class SpaceshipScript : MonoBehaviour
         player.transform.parent = gameObject.transform;
 
         //Enable Interior
-        gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        StartCoroutine(SetInteriorActive(true));
     }
 
     public void PlayerExitShip()
@@ -47,7 +47,13 @@ public class SpaceshipScript : MonoBehaviour
         player.transform.parent = GameObject.Find("===XR Stuff===").transform;
 
         //Disable Interior
-        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        StartCoroutine(SetInteriorActive(false));
+    }
+
+    IEnumerator SetInteriorActive(bool state)
+    {
+        yield return new WaitForSeconds(1.5f); //wait for teleport effect
+        gameObject.transform.GetChild(0).gameObject.SetActive(state);
     }
 
     public void MoveShipForward()
