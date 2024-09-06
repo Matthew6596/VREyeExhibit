@@ -49,6 +49,7 @@ public class JetpackThruster : MonoBehaviour
     {
         playercc = player.GetComponent<CharacterController>();
         vibrate = GetComponent<VibrateController>();
+        _audio = GetComponent<AudioSource>();
         //StartCoroutine(trackVelocity());
     }
 
