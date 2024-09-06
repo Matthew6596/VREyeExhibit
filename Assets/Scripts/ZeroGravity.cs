@@ -125,8 +125,7 @@ public class ZeroGravity : MonoBehaviour
 
     public void ToggleSpaceshipAmbient(bool on)
     {
-        if (on) spaceshipAmbient.Play();
-        else spaceshipAmbient.Stop();
+        StartCoroutine(soundDelay(on));
     }
     public static void ToggleSpaceshipAmbientS(bool on)
     {
@@ -143,5 +142,10 @@ public class ZeroGravity : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         TogglePlayerGravity(on);
+    }
+    IEnumerator soundDelay(bool on)
+    {
+        yield return new WaitForSeconds(1.5f);
+        ToggleSpaceshipAmbientS(on);
     }
 }
