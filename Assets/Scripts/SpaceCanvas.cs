@@ -123,6 +123,7 @@ public class SpaceCanvas : MonoBehaviour
             TeleportEffect.Activate();
             Delay(teleportPlayer.provider.delayTime, () =>
             {
+                if (teleportDropdown.value == 0) ZeroGravity.ToggleSpaceshipAmbientS(false);
                 TeleportScript.Teleport(cc, teleportPlayer.anchor);
                 ZeroGravity.inst.TogglePlayerGravity(true);
                 outsideCanvas[0].TurnOn();

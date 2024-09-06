@@ -21,6 +21,7 @@ public class ZeroGravity : MonoBehaviour
     
     public GameObject leftHand, rightHand, leftThruster, rightThruster;
     public bool zeroGravityStartOn = false;
+    public AudioSource spaceshipAmbient;
 
     // Start is called before the first frame update
     void Start()
@@ -106,6 +107,7 @@ public class ZeroGravity : MonoBehaviour
             rightHand.SetActive(false);
             moveProvider.useGravity = false;
             moveProvider.moveSpeed = 0;
+            //if(spaceshipAmbient.isPlaying) spaceshipAmbient.Stop();
         }
         else
         {
@@ -117,7 +119,19 @@ public class ZeroGravity : MonoBehaviour
             rightHand.SetActive(true);
             moveProvider.useGravity = true;
             moveProvider.moveSpeed = 1;
+            //if (!spaceshipAmbient.isPlaying) spaceshipAmbient.Play();
         }
+    }
+
+    public void ToggleSpaceshipAmbient(bool on)
+    {
+        if (on) spaceshipAmbient.Play();
+        else spaceshipAmbient.Stop();
+    }
+    public static void ToggleSpaceshipAmbientS(bool on)
+    {
+        if (on) inst.spaceshipAmbient.Play();
+        else inst.spaceshipAmbient.Stop();
     }
 
     public void TogglePlayerGravityWDelay(bool on)

@@ -23,6 +23,7 @@ public class JetpackThruster : MonoBehaviour
     private GameObject particleInstance;
     private float brakeAmt=1;
     private VibrateController vibrate;
+    private AudioSource audio;
 
     private void Awake()
     {
@@ -58,6 +59,7 @@ public class JetpackThruster : MonoBehaviour
 
         if (thrustInput > 0)
         {
+            if(!audio.isPlaying) audio.Play();
             vibrate.VibrateWeak(Time.deltaTime);
 
             if (doRotation)
@@ -71,6 +73,10 @@ public class JetpackThruster : MonoBehaviour
                 rotationVelocity += thrustInput * rotationPower * a1.magnitude * transform.forward;
             }
             else velocity += thrustInput * transform.forward;
+        }
+        else
+        {
+            if(audio.isPlaying) audio.Stop();
         }
 
         velocity *= brakeAmt;
