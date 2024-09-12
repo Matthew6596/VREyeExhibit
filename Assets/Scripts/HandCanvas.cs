@@ -16,7 +16,7 @@ public class HandCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool beOn = Quaternion.Angle(playerCamera.rotation, hand.rotation) < 45;
+        bool beOn = Quaternion.Angle(playerCamera.rotation, hand.rotation) < 55;
         if (handUI.on)
         {
             if (!beOn) handUI.TurnOff();
