@@ -944,12 +944,13 @@ GameObject:
   - component: {fileID: 543628570469036274}
   - component: {fileID: 1632189086369440653}
   - component: {fileID: 6223289248340402752}
-  - component: {fileID: 7755044591364799660}
+  - component: {fileID: 5108854281489955099}
+  - component: {fileID: 720057076053481019}
   - component: {fileID: 9214074717444058880}
   - component: {fileID: 8217675878730048145}
   - component: {fileID: 7515452653196876748}
   - component: {fileID: 3662844927667057263}
-  - component: {fileID: 1462410614450227095}
+  - component: {fileID: 603864033893814997}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -1048,7 +1049,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ee51f64b8e43c794cb052194ecf5c5dc, type: 3}
---- !u!54 &7755044591364799660
+--- !u!54 &5108854281489955099
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1075,6 +1076,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &720057076053481019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5080127407050924190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c9c539af575a647b5018d93bc70f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  turnOn: 0
 --- !u!114 &9214074717444058880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1142,7 +1157,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1462410614450227095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TeleportScript, Assembly-CSharp
         m_MethodName: TeleportWDelay
         m_Mode: 2
@@ -1294,7 +1309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchor: {fileID: 7650354967967259067}
   provider: {fileID: 0}
---- !u!114 &1462410614450227095
+--- !u!114 &603864033893814997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3505,7 +3520,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2954
+  m_VersionIndex: 2960
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5714,7 +5729,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3861
+  m_VersionIndex: 3867
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6744,6 +6759,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2935824737574730555}
+    - targetCorrespondingSourceObject: {fileID: 4922582553321831162, guid: 76f3439a0ae796e4b81bee3f91f888ee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 502107503822583812}
   m_SourcePrefab: {fileID: 100100000, guid: 76f3439a0ae796e4b81bee3f91f888ee, type: 3}
 --- !u!4 &3536226589484000715 stripped
 Transform:
@@ -6896,6 +6915,20 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: 02e01164404134d2c9265aa08b65ba96, type: 3}
   volume: 1
   randomPitchVariance: 0.2
+--- !u!114 &502107503822583812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3840546091634653790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c77527ec0884f74aa04c0f1019c19ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualOffset: {x: 0, y: 0, z: 0}
+  targetTransform: {fileID: 0}
 --- !u!114 &4191038372592301646 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5419331889293473514, guid: 76f3439a0ae796e4b81bee3f91f888ee,
