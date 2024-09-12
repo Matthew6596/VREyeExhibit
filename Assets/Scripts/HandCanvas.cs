@@ -5,6 +5,7 @@ using UnityEngine;
 public class HandCanvas : MonoBehaviour
 {
     public Transform playerCamera, hand;
+    public SpaceCanvas handUI;
 
     // Start is called before the first frame update
     void Start()
@@ -15,11 +16,15 @@ public class HandCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public Vector3 PlaneAngleCloseness(float xAng, float yAng)
-    {
+        bool beOn = Quaternion.Angle(playerCamera.rotation, hand.rotation) < 55;
+        if (handUI.on)
+        {
+            if (!beOn) handUI.TurnOff();
+        }
+        else
+        {
+            if (beOn) handUI.TurnOn();
+        }
         
     }
 }
