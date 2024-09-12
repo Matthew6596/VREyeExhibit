@@ -23,6 +23,9 @@ public class ZeroGravity : MonoBehaviour
     public bool zeroGravityStartOn = false;
     public AudioSource spaceshipAmbient;
 
+    public int numOfVents = 0;
+    GameObject[] vents;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,11 @@ public class ZeroGravity : MonoBehaviour
         moveProvider = FindObjectOfType<DynamicMoveProvider>();
         RefreshRigidbodies();
         StartCoroutine(checkControllers());
+
+        if(numOfVents != 0)
+        {
+            vents = GameObject.FindGameObjectsWithTag("Vent");
+        }
     }
 
     public void ToggleZeroGravity(){ToggleZeroGravity(!zeroGravityActive);}
@@ -131,6 +139,13 @@ public class ZeroGravity : MonoBehaviour
     {
         if (on) inst.spaceshipAmbient.Play();
         else inst.spaceshipAmbient.Stop();
+
+        //toggle vents
+        for (int i = 0; i < inst.numOfVents; i++)
+        {
+            //Debug.Log(inst.vents[i].name);
+            inst.vents[i].SetActive(on);
+        }
     }
 
     public void TogglePlayerGravityWDelay(bool on)
