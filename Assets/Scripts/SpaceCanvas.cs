@@ -136,6 +136,8 @@ public class SpaceCanvas : MonoBehaviour
         showText.text = txt;
         showTextBoxArea.gameObject.SetActive(true);
     }
+
+    public void QuitGame(){Application.Quit();}
     //---
 
     //---Delaying actions---
