@@ -11,7 +11,6 @@ public class JetpackObstacle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("collision");
             thrusters = FindObjectsOfType<JetpackThruster>();
             foreach(JetpackThruster jet in thrusters) jet.MultiplyVelocity(stopForce);
         }
