@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    public Transform player;
+    private BoxCollider c;
+
     private int q=100;
     public int queue { get => q; set { q = value; setAlpha(); } }
 
@@ -16,12 +19,24 @@ public class Checkpoint : MonoBehaviour
     void Start()
     {
         pqs = GetComponent<PlayQuickSound>();
+        c = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!c.bounds.Contains(player.position)) return;
+
+        if (queue == 0) //yay!
+        {
+            if(pqs!=null)pqs.Play();
+            queue = -1;
+            enterAction();
+        }
+        else if(queue!=-1)//Entered wrong checkpoint, too early!
+        {
+
+        }
     }
 
     private void setAlpha()
@@ -31,26 +46,10 @@ public class Checkpoint : MonoBehaviour
         switch (q)
         {
             case 0: b.a=1; break;
-            case 1: b.a=.67f; break;
-            case 2: b.a=.33f; break;
+            case 1: b.a=.5f; break;
+            case 2: b.a=.25f; break;
             default: b.a = 0; break;
         }
         mat.color = b;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (queue == 0) //yay!
-            {
-                pqs.Play();
-                enterAction();
-            }
-            else //Entered wrong checkpoint, too early!
-            {
-
-            }
-        }
     }
 }

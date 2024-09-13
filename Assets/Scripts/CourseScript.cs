@@ -16,8 +16,8 @@ public class CourseScript : MonoBehaviour
     //---Private fields---
 
     //Timer stuff
-    private Stopwatch timer;
-    private Stopwatch lapTimer;
+    private Stopwatch timer = new();
+    private Stopwatch lapTimer = new();
     float[] laps; //in seconds
     float finalTime;
 
@@ -40,6 +40,8 @@ public class CourseScript : MonoBehaviour
         target = checkpoints[0];
         timer = Stopwatch.StartNew();
         lapTimer = Stopwatch.StartNew();
+        //Set checkpoint queues (so checkpoints know when they are next)
+        for (int i = targetIndex, cnt = 0; i < checkpoints.Length; i++, cnt++) checkpoints[i].queue = cnt;
     }
 
     void NextCheckpoint() //Called by checkpoint when entered
@@ -50,7 +52,7 @@ public class CourseScript : MonoBehaviour
 
         //Increase lap count, check for completion, get next checkpoint
         targetIndex++;
-        if (targetIndex == checkpoints.Length) Complete();
+        if (targetIndex == checkpoints.Length) { Complete(); return; }
         target = checkpoints[targetIndex];
 
         //Set checkpoint queues (so checkpoints know when they are next)
@@ -61,6 +63,7 @@ public class CourseScript : MonoBehaviour
     {
         timer.Stop();
         finalTime = (float)timer.Elapsed.TotalSeconds;
+        checkpoints[^1].queue = -1;
 
         End();
     }
@@ -71,7 +74,9 @@ public class CourseScript : MonoBehaviour
 
     public void Cancel() //Cancels obstacle course
     {
-
+        checkpoints[targetIndex].queue = -1;
+        checkpoints[targetIndex+1].queue = -1;
+        checkpoints[targetIndex+2].queue = -1;
 
         End();
     }
@@ -98,7 +103,7 @@ public class CourseScript : MonoBehaviour
     void Update()
     {
         if (timer.IsRunning) {
-            mainTimeText.text = TimeToText(timer.Elapsed.Seconds);
+            mainTimeText.text = TimeToText((float)timer.Elapsed.TotalSeconds);
         }
     }
 }

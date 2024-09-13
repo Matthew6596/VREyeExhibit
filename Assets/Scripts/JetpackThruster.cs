@@ -87,7 +87,7 @@ public class JetpackThruster : MonoBehaviour
 
     public void Thrust(InputAction.CallbackContext ctx)
     {
-        if (!ZeroGravity.zeroGravityActive) return;
+        //if (!ZeroGravity.zeroGravityActive) return;
 
         thrustInput = ctx.ReadValue<float>()*thrustPower;
 
@@ -96,13 +96,14 @@ public class JetpackThruster : MonoBehaviour
     }
     public void Brake(InputAction.CallbackContext ctx)
     {
-        if (!ZeroGravity.zeroGravityActive) return;
+        //if (!ZeroGravity.zeroGravityActive) return;
 
         brakeAmt = 1-ctx.ReadValue<float>()/brakeSensitivity;
         
     }
 
     public void StopVelocity() { velocity = Vector3.zero; }
+    public void MultiplyVelocity(float amt) { velocity *= amt; }
 
     IEnumerator trackVelocity()
     {
