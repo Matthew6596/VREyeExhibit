@@ -40,6 +40,8 @@ public class CourseScript : MonoBehaviour
         target = checkpoints[0];
         timer = Stopwatch.StartNew();
         lapTimer = Stopwatch.StartNew();
+        mainTimeText.gameObject.SetActive(true);
+        mainTimeText.text = "0.000";
         //Set checkpoint queues (so checkpoints know when they are next)
         for (int i = targetIndex, cnt = 0; i < checkpoints.Length; i++, cnt++) checkpoints[i].queue = cnt;
     }
@@ -70,6 +72,7 @@ public class CourseScript : MonoBehaviour
     void End() //Performs ending actions for both complete and cancel
     {
         lapTimer.Reset();
+        mainTimeText.gameObject.SetActive(false);
     }
 
     public void Cancel() //Cancels obstacle course
