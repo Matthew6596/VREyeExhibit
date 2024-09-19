@@ -23,6 +23,7 @@ public class CourseScript : MonoBehaviour
     private Stopwatch lapTimer = new();
     float[] laps; //in seconds
     float finalTime=float.NaN, bestTime=float.NaN;
+    bool txtOverride = false;
 
     //Checkpoint stuff
     Checkpoint target;
@@ -56,6 +57,11 @@ public class CourseScript : MonoBehaviour
         laps[targetIndex] = (float)lapTimer.Elapsed.TotalSeconds;
         lapTimer.Restart();
 
+        //Show the lap splits
+        txtOverride = true;
+        mainTimeText.text = "Checkpoint " + (targetIndex + 1) + ": " + TimeToText(laps[targetIndex]);
+        DelayAction(() => { txtOverride = false; }, 1.5f);
+
         //Increase lap count, check for completion, get next checkpoint
         targetIndex++;
         if (targetIndex == checkpoints.Length) { Complete(); return; }
@@ -79,6 +85,7 @@ public class CourseScript : MonoBehaviour
     {
         lapTimer.Reset();
         DelayAction(() => { mainTimeText.gameObject.SetActive(false); }, 3);
+        catsCollected = 0;
     }
 
     public void Cancel() //Cancels obstacle course
@@ -95,6 +102,12 @@ public class CourseScript : MonoBehaviour
         string t = float.IsNaN(finalTime) ? "..." : TimeToText(finalTime);
         string bt = float.IsNaN(bestTime) ? "..." : TimeToText(bestTime);
         statsTxt.text = "Time: "+t+"\nCats Collected: "+catsCollected+"\nBest Time: "+bt+"\nTotal Cats Collected: "+totalCatsCollected;
+    }
+
+    public void CollectCat()
+    {
+        catsCollected++;
+        totalCatsCollected++;
     }
 
     string TimeToText(float seconds)
@@ -118,7 +131,8 @@ public class CourseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer.IsRunning) {
+        if (timer.IsRunning && !txtOverride) 
+        {
             mainTimeText.text = TimeToText((float)timer.Elapsed.TotalSeconds);
         }
     }
