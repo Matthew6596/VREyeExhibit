@@ -6,7 +6,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public Transform player;
-    private BoxCollider c;
+    private BoxCollider[] cs;
 
     private int q=100;
     public int queue { get => q; set { q = value; setAlpha(); } }
@@ -19,13 +19,17 @@ public class Checkpoint : MonoBehaviour
     void Start()
     {
         pqs = GetComponent<PlayQuickSound>();
-        c = GetComponent<BoxCollider>();
+        cs = GetComponents<BoxCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!c.bounds.Contains(player.position)) return;
+        bool playerin = false;
+        for(int i=0; i<cs.Length; i++)
+            if (cs[i].bounds.Contains(player.position)) { playerin = true; break; }
+        if (!playerin) return;
+
 
         if (queue == 0) //yay!
         {
@@ -43,13 +47,10 @@ public class Checkpoint : MonoBehaviour
     {
         Material mat = GetComponent<Renderer>().material;
         Color b = mat.color;
-        switch (q)
+        b.a = q switch
         {
-            case 0: b.a=1; break;
-            case 1: b.a=.5f; break;
-            case 2: b.a=.25f; break;
-            default: b.a = 0; break;
-        }
+            0 => 1, 1 => .5f, 2 => .25f, _ => 0,
+        };
         mat.color = b;
     }
 }
