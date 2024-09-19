@@ -11,16 +11,18 @@ public class CourseScript : MonoBehaviour
     public Checkpoint[] checkpoints;
     public GameObject[] cats;
 
-    public TMP_Text mainTimeText;
+    public TMP_Text mainTimeText,statsTxt;
     //---
 
     //---Private fields---
+
+    int catsCollected=0,totalCatsCollected=0;
 
     //Timer stuff
     private Stopwatch timer = new();
     private Stopwatch lapTimer = new();
     float[] laps; //in seconds
-    float finalTime;
+    float finalTime=float.NaN, bestTime=float.NaN;
 
     //Checkpoint stuff
     Checkpoint target;
@@ -33,6 +35,7 @@ public class CourseScript : MonoBehaviour
     {
         foreach (Checkpoint cp in checkpoints) cp.enterAction += NextCheckpoint;
         laps = new float[checkpoints.Length];
+        DisplayStatText();
     }
 
     public void Begin()
@@ -66,7 +69,9 @@ public class CourseScript : MonoBehaviour
     {
         timer.Stop();
         finalTime = (float)timer.Elapsed.TotalSeconds;
+        if(finalTime<bestTime || float.IsNaN(bestTime))bestTime = finalTime;
         checkpoints[^1].queue = -1;
+        DisplayStatText();
 
         End();
     }
@@ -83,6 +88,13 @@ public class CourseScript : MonoBehaviour
         checkpoints[targetIndex+2].queue = -1;
 
         End();
+    }
+
+    public void DisplayStatText()
+    {
+        string t = float.IsNaN(finalTime) ? "..." : TimeToText(finalTime);
+        string bt = float.IsNaN(bestTime) ? "..." : TimeToText(bestTime);
+        statsTxt.text = "Time: "+t+"\nCats Collected: "+catsCollected+"\nBest Time: "+bt+"\nTotal Cats Collected: "+totalCatsCollected;
     }
 
     string TimeToText(float seconds)
