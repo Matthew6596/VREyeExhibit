@@ -3432,7 +3432,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1135
+  m_VersionIndex: 1138
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3573,7 +3573,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.5, y: 0.25, z: 2.5}
+  m_Size: {x: 2.5, y: 0.15, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &900923588569349737
 BoxCollider:
@@ -3594,7 +3594,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 0.25, z: 0.4}
+  m_Size: {x: 2, y: 0.15, z: 0.4}
   m_Center: {x: 0, y: 0, z: -1.45}
 --- !u!65 &6583699212191110474
 BoxCollider:
@@ -3615,7 +3615,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 0.25, z: 0.4}
+  m_Size: {x: 2, y: 0.15, z: 0.4}
   m_Center: {x: 0, y: 0, z: 1.45}
 --- !u!65 &4317750575626799911
 BoxCollider:
@@ -3636,7 +3636,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4, y: 0.25, z: 2}
+  m_Size: {x: 0.4, y: 0.15, z: 2}
   m_Center: {x: -1.45, y: 0, z: 0}
 --- !u!65 &2048126429845241632
 BoxCollider:
@@ -3657,5 +3657,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4, y: 0.25, z: 2}
+  m_Size: {x: 0.4, y: 0.15, z: 2}
   m_Center: {x: 1.45, y: 0, z: 0}
