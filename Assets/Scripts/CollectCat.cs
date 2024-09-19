@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class CollectCat : MonoBehaviour
 {
-    public GameObject particlePrefab;
-    GameObject particles;
+    //public GameObject particlePrefab;
+    public int catsCollected;
+    bool canCollect;
+    Rigidbody rb;
+    TeleportObjectScript teleportScript;
+    CanvasTriggerArea canvasTriggerArea;
+    //GameObject particles;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        //rb.useGravity = false;
+        teleportScript = GetComponent<TeleportObjectScript>();
+        canvasTriggerArea = GetComponent<CanvasTriggerArea>();
     }
 
     // Update is called once per frame
@@ -19,24 +27,20 @@ public class CollectCat : MonoBehaviour
         
     }
 
-    public void Collect() //Invoked on grab?
+    public void Collect() 
     {
-        //Teleport effect for cat
-        StartCoroutine(catTeleport());
+        canCollect = teleportScript.TeleportWDelay();
+        if(canCollect)
+        {
+            catsCollected++;
+            canvasTriggerArea.enabled = false;
+            StartCoroutine(ToggleGravity());
+        }
     }
 
-    IEnumerator catTeleport()
+    IEnumerator ToggleGravity()
     {
-        //Begin teleport effect
-        if (particlePrefab != null) particles = Instantiate(particlePrefab, transform);
-
-        //Wait for teleport to end
         yield return new WaitForSeconds(1.5f);
-
-        //End teleport effect
-        if (particles != null) Destroy(particles);
-
-
-        //Teleport cat to inside ship
+        rb.useGravity = true;
     }
 }

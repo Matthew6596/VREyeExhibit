@@ -22,7 +22,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 8561283411273804326}
+      objectReference: {fileID: 2302291406029623004}
     - target: {fileID: 280824864669913668, guid: 3637de294d373a946ac38e03d6c5e1e0,
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -31,17 +31,22 @@ PrefabInstance:
     - target: {fileID: 280824864669913668, guid: 3637de294d373a946ac38e03d6c5e1e0,
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: TeleportWDelay
+      value: Collect
       objectReference: {fileID: 0}
     - target: {fileID: 280824864669913668, guid: 3637de294d373a946ac38e03d6c5e1e0,
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: TeleportObjectScript, Assembly-CSharp
+      value: CollectCat, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 280824864669913668, guid: 3637de294d373a946ac38e03d6c5e1e0,
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 529045416762096123, guid: 3637de294d373a946ac38e03d6c5e1e0,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 1748
       objectReference: {fileID: 0}
     - target: {fileID: 529045416762096123, guid: 3637de294d373a946ac38e03d6c5e1e0,
         type: 3}
@@ -64043,6 +64048,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: space cu_catVR Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3194591309242491628, guid: 3637de294d373a946ac38e03d6c5e1e0,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3492792555596325264, guid: 3637de294d373a946ac38e03d6c5e1e0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -64105,6 +64115,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5488222690188058793}
+    - targetCorrespondingSourceObject: {fileID: 2717079242297560665, guid: 3637de294d373a946ac38e03d6c5e1e0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3422304860736677349}
+    - targetCorrespondingSourceObject: {fileID: 2717079242297560665, guid: 3637de294d373a946ac38e03d6c5e1e0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2302291406029623004}
   m_SourcePrefab: {fileID: 100100000, guid: 3637de294d373a946ac38e03d6c5e1e0, type: 3}
 --- !u!1 &6981832899497983879 stripped
 GameObject:
@@ -64142,3 +64160,30 @@ MonoBehaviour:
     type: 3}
   effectLifetime: 1.5
   afterEffectLifetime: 1.5
+--- !u!114 &3422304860736677349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6981832899497983879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c9c539af575a647b5018d93bc70f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  turnOn: 0
+--- !u!114 &2302291406029623004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6981832899497983879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f41576b292266439032bd7f0f7d237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catsCollected: 0

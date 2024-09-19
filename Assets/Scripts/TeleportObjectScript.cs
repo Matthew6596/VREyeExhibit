@@ -21,7 +21,7 @@ public class TeleportObjectScript : MonoBehaviour
         grabInteractable = GetComponent<XRGrabInteractable>();
     }
 
-    public void Teleport(TeleportationAnchor anchor) 
+    public bool Teleport(TeleportationAnchor anchor) 
     {
         if (canTeleport)
         {
@@ -29,9 +29,10 @@ public class TeleportObjectScript : MonoBehaviour
             canTeleport = false;
             grabInteractable.enabled = true; //Reenable interactable
         }
+        return canTeleport;
     }
 
-    public void TeleportWDelay()
+    public bool TeleportWDelay()
     {
         if(canTeleport)
         {
@@ -39,6 +40,7 @@ public class TeleportObjectScript : MonoBehaviour
             TeleportEffectObject.Activate();
             StartCoroutine(delay(1.5f, () => { Teleport(anchor); }));
         }
+        return canTeleport;
     }
 
     private void OnTriggerEnter(UnityEngine.Collider other)
