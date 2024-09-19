@@ -62,7 +62,8 @@ public class CourseScript : MonoBehaviour
 
         //Show the lap splits
         txtOverride = true;
-        mainTimeText.text = "Checkpoint " + (targetIndex + 1) + ": " + TimeToText(laps[targetIndex]);
+        if(targetIndex + 1 == laps.Length) mainTimeText.text = "Final Checkpoint: " + TimeToText(laps[targetIndex]);
+        else mainTimeText.text = "Checkpoint " + (targetIndex + 1) + ": " + TimeToText(laps[targetIndex]);
         DelayAction(() => { txtOverride = false; }, 1.5f);
 
         //Increase lap count, check for completion, get next checkpoint
