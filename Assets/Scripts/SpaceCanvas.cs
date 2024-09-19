@@ -53,6 +53,7 @@ public class SpaceCanvas : MonoBehaviour
         }
         baseBGScale = bg.localScale;
         bg.transform.localScale = Vector3.zero;
+        if (on) TurnOn();
     }
     //---
 
