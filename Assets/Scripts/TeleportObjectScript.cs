@@ -37,7 +37,8 @@ public class TeleportObjectScript : MonoBehaviour
         if(canTeleport)
         {
             //Teleport();
-            TeleportEffectObject.Activate();
+            GetComponent<TeleportEffectObject>().activate();
+            //TeleportEffectObject.Activate();
             StartCoroutine(delay(1.5f, () => { Teleport(anchor); }));
         }
         return canTeleport;
