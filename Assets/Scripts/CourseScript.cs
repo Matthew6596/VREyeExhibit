@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class CourseScript : MonoBehaviour
 {
@@ -72,7 +73,7 @@ public class CourseScript : MonoBehaviour
     void End() //Performs ending actions for both complete and cancel
     {
         lapTimer.Reset();
-        mainTimeText.gameObject.SetActive(false);
+        DelayAction(() => { mainTimeText.gameObject.SetActive(false); }, 3);
     }
 
     public void Cancel() //Cancels obstacle course
@@ -91,14 +92,14 @@ public class CourseScript : MonoBehaviour
         else
         {
             int beforeLen = txt.IndexOf('.');
-            string afterTxt = txt.Substring(beforeLen + 1);
-            switch (afterTxt.Length)
+            string afterTxt = txt[(beforeLen + 1)..];
+            return (afterTxt.Length) switch
             {
-                case 1: return txt+"00";
-                case 2: return txt+"0";
-                case 3: return txt;
-                default: return txt.Substring(0, beforeLen + 4);
-            }
+                1 => txt + "00",
+                2 => txt + "0",
+                3 => txt,
+                _ => txt[..(beforeLen + 4)]
+            };
         }
     }
 
@@ -108,5 +109,12 @@ public class CourseScript : MonoBehaviour
         if (timer.IsRunning) {
             mainTimeText.text = TimeToText((float)timer.Elapsed.TotalSeconds);
         }
+    }
+
+    private void DelayAction(Action action, float delay){StartCoroutine(delayAction(action, delay));}
+    IEnumerator delayAction(Action action, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        action();
     }
 }
