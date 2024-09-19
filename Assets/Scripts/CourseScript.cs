@@ -15,7 +15,7 @@ public class CourseScript : MonoBehaviour
     //---
 
     //---Private fields---
-
+    static int totalCats = 10; //CHANGE LATER
     int catsCollected=0,totalCatsCollected=0;
 
     //Timer stuff
@@ -28,6 +28,9 @@ public class CourseScript : MonoBehaviour
     //Checkpoint stuff
     Checkpoint target;
     int targetIndex = 0;
+
+    //Cat stuff
+    int catIndex;
 
     //---
 
@@ -104,10 +107,26 @@ public class CourseScript : MonoBehaviour
         statsTxt.text = "Time: "+t+"\nCats Collected: "+catsCollected+"\nBest Time: "+bt+"\nTotal Cats Collected: "+totalCatsCollected;
     }
 
-    public void CollectCat()
+    public void CollectCat(GameObject cat)
     {
         catsCollected++;
         totalCatsCollected++;
+
+        for (int i = 0; i < cats.Length; i++)
+        {
+            if (cats[i] == cat)
+            {
+                catIndex = i;
+                break;
+            }
+        }
+
+        //Get the time
+        float time = (float)timer.Elapsed.TotalSeconds;
+
+        txtOverride = true;
+        mainTimeText.text = "Cat " + (catIndex + 1) + " collected at " + TimeToText(time);
+        DelayAction(() => { txtOverride = false; }, 1.5f);
     }
 
     string TimeToText(float seconds)

@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class CollectCat : MonoBehaviour
 {
-    //public GameObject particlePrefab;
-    public int catsCollected;
+    public CourseScript courseScript;
     bool canCollect;
     Rigidbody rb;
     TeleportObjectScript teleportScript;
     CanvasTriggerArea canvasTriggerArea;
-    //GameObject particles;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //rb.useGravity = false;
         teleportScript = GetComponent<TeleportObjectScript>();
         canvasTriggerArea = GetComponent<CanvasTriggerArea>();
     }
@@ -32,9 +29,9 @@ public class CollectCat : MonoBehaviour
         canCollect = teleportScript.TeleportWDelay();
         if(canCollect)
         {
-            catsCollected++;
             canvasTriggerArea.enabled = false;
             StartCoroutine(ToggleGravity());
+            courseScript.CollectCat(gameObject);
         }
     }
 
