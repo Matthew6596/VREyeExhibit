@@ -4,6 +4,7 @@ using System.Diagnostics;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class CourseScript : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CourseScript : MonoBehaviour
     public GameObject[] cats;
 
     public TMP_Text mainTimeText,statsTxt;
+    public XRSimpleInteractable shipInteraction;
     //---
 
     //---Private fields---
@@ -50,6 +52,7 @@ public class CourseScript : MonoBehaviour
         lapTimer = Stopwatch.StartNew();
         mainTimeText.gameObject.SetActive(true);
         mainTimeText.text = "0.000";
+        shipInteraction.enabled = false;
         //Set checkpoint queues (so checkpoints know when they are next)
         for (int i = targetIndex, cnt = 0; i < checkpoints.Length; i++, cnt++) checkpoints[i].queue = cnt;
     }
@@ -87,6 +90,7 @@ public class CourseScript : MonoBehaviour
     }
     void End() //Performs ending actions for both complete and cancel
     {
+        shipInteraction.enabled = true;
         lapTimer.Reset();
         DelayAction(() => { mainTimeText.gameObject.SetActive(false); }, 3);
         catsCollected = 0;
