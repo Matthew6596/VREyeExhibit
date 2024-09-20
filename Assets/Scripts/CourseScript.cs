@@ -15,7 +15,7 @@ public class CourseScript : MonoBehaviour
     //---
 
     //---Private fields---
-    static int totalCats = 10; //CHANGE LATER
+    static int totalCats = 4; 
     int catsCollected=0,totalCatsCollected=0;
 
     //Timer stuff
@@ -105,7 +105,7 @@ public class CourseScript : MonoBehaviour
     {
         string t = float.IsNaN(finalTime) ? "..." : TimeToText(finalTime);
         string bt = float.IsNaN(bestTime) ? "..." : TimeToText(bestTime);
-        statsTxt.text = "Time: "+t+"\nCats Collected: "+catsCollected+"\nBest Time: "+bt+"\nTotal Cats Collected: "+totalCatsCollected;
+        statsTxt.text = "Time: "+t+"\nCats Collected: "+catsCollected+"\nBest Time: "+bt+"\nTotal Cats Collected: "+totalCatsCollected+"/"+totalCats;
     }
 
     public void CollectCat(GameObject cat)
